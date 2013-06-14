@@ -167,7 +167,7 @@ ConfigurationOfBarcode >> version10: spec [
 		spec description: 'First release'.
 		spec author: 'tbn'.
 		spec timestamp: '6/14/2013 08:58'.
-		spec package: 'Barcode' with: 'Barcode-TorstenBergmann.1'. 
+		spec package: 'Barcode' with: 'Barcode-TorstenBergmann.2'. 
 	].
 
 
@@ -182,7 +182,7 @@ ConfigurationOfBarcode >> version11: spec [
 		spec description: 'Current development'.
 		spec author: 'tbn'.
 		spec timestamp: '6/14/2013 08:58'.
-		spec package: 'Barcode' with: 'Barcode-TorstenBergmann.1'. 
+		spec package: 'Barcode' with: 'Barcode-TorstenBergmann.2'. 
 	].
 
 
