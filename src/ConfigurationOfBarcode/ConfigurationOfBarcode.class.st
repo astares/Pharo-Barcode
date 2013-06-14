@@ -115,7 +115,7 @@ ConfigurationOfBarcode >> baseline10: spec [
 	spec for: #'pharo' do: [
 		spec blessing: #'baseline'.
 		spec repository: 'http://smalltalkhub.com/mc/TorstenBergmann/Barcode/main'.
-		spec package: 'Barcodes'].
+		spec package: 'Barcode'].
 		
 		
 	 
