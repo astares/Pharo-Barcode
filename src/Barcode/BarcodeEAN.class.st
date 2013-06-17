@@ -1,7 +1,7 @@
 Class {
 	#name : #BarcodeEAN,
 	#superclass : #Barcode,
-	#category : #'Barcode-Core'
+	#category : #'Barcode-Core-EAN'
 }
 
 { #category : #conversion }

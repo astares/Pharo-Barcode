@@ -6,7 +6,7 @@ http://barcode-coder.com/en/ean-13-specification-102.html
 Class {
 	#name : #BarcodeEAN13,
 	#superclass : #BarcodeEAN,
-	#category : #'Barcode-Core'
+	#category : #'Barcode-Core-EAN'
 }
 
 { #category : #example }
