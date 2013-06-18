@@ -45,6 +45,13 @@ QRErrorCorrectionLevel class >> levelQ [
 	^self level: #Q errorCorrectionCapability: 25
 ]
 
+{ #category : #comparing }
+QRErrorCorrectionLevel >> = anotherErrorCorrectionLevel [ 
+	
+	^self level = anotherErrorCorrectionLevel level 
+		and: [ self  errorCorrectionCapability = anotherErrorCorrectionLevel errorCorrectionCapability ] 
+]
+
 { #category : #accessing }
 QRErrorCorrectionLevel >> errorCorrectionCapability [
 

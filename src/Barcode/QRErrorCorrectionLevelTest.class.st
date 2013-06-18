@@ -5,6 +5,13 @@ Class {
 }
 
 { #category : #tests }
+QRErrorCorrectionLevelTest >> testComparision [
+
+	self assert: QRErrorCorrectionLevel levelH = QRErrorCorrectionLevel levelH.
+	self deny:  QRErrorCorrectionLevel levelH = QRErrorCorrectionLevel levelM
+]
+
+{ #category : #tests }
 QRErrorCorrectionLevelTest >> testLevelH [
 
 	| level |

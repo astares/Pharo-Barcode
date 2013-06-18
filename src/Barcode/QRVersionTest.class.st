@@ -12,6 +12,12 @@ QRVersionTest >> testBadVersion [
 ]
 
 { #category : #tests }
+QRVersionTest >> testDefaultLevel [
+	
+	self assert: (QRVersion nr: 1) errorCorrectionLevel = QRErrorCorrectionLevel levelH  
+]
+
+{ #category : #tests }
 QRVersionTest >> testInstanceCreation [
 
 	| instance |
