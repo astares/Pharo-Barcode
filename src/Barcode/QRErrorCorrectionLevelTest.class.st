@@ -51,3 +51,9 @@ QRErrorCorrectionLevelTest >> testLevelQ [
 		assert: level level = #Q;
 		assert: level errorCorrectionCapability = 25
 ]
+
+{ #category : #tests }
+QRErrorCorrectionLevelTest >> testPrinting [
+
+	self assert: QRErrorCorrectionLevel levelQ printString = 'Error Correction Level Q (recovers 25% of data)'
+]

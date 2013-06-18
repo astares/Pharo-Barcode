@@ -75,3 +75,15 @@ QRErrorCorrectionLevel >> level: aSymbol [
 
 	level := aSymbol
 ]
+
+{ #category : #printing }
+QRErrorCorrectionLevel >> printOn: aStream [
+
+	aStream 
+		nextPutAll: 'Error Correction Level ';
+		nextPutAll: self level;
+		space;
+		nextPutAll: '(recovers ';
+		nextPutAll: errorCorrectionCapability asString;
+		nextPutAll:  '% of data)' 
+]
