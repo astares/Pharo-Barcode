@@ -1,41 +1,70 @@
 Class {
 	#name : #QRErrorCorrectionLevel,
 	#superclass : #Object,
+	#instVars : [
+		'level',
+		'errorCorrectionCapability'
+	],
 	#category : #'Barcode-Core-QR'
 }
+
+{ #category : #'instance creation' }
+QRErrorCorrectionLevel class >> level: aSymbol errorCorrectionCapability: aNumber [
+
+	^(self new)
+		level: aSymbol;
+		errorCorrectionCapability: aNumber;
+		yourself
+]
 
 { #category : #'instance creation' }
 QRErrorCorrectionLevel class >> levelH [
 	"Recovers 30% of data"
 	
-	^(self new) 
-		level: #H;
-		yourself
+	^self level: #H errorCorrectionCapability: 30
 ]
 
-{ #category : #'instance creation' }
+{ #category : #defaults }
 QRErrorCorrectionLevel class >> levelL [
 	"Recovers 7% of data"
 	
-	^(self new) 
-		level: #L;
-		yourself
+	^self level: #L errorCorrectionCapability: 7
 ]
 
-{ #category : #'instance creation' }
+{ #category : #defaults }
 QRErrorCorrectionLevel class >> levelM [
 	"Recovers 15% of data"
 	
-	^(self new) 
-		level: #M;
-		yourself
+	^self level: #M errorCorrectionCapability: 15
 ]
 
-{ #category : #'instance creation' }
+{ #category : #defaults }
 QRErrorCorrectionLevel class >> levelQ [
 	"Recovers 25% of data"
 	
-	^(self new) 
-		level: #Q;
-		yourself
+	^self level: #Q errorCorrectionCapability: 25
+]
+
+{ #category : #accessing }
+QRErrorCorrectionLevel >> errorCorrectionCapability [
+
+	^errorCorrectionCapability
+]
+
+{ #category : #accessing }
+QRErrorCorrectionLevel >> errorCorrectionCapability: aNumber [
+
+	errorCorrectionCapability := aNumber
+]
+
+{ #category : #accessing }
+QRErrorCorrectionLevel >> level [
+
+	^level
+]
+
+{ #category : #accessing }
+QRErrorCorrectionLevel >> level: aSymbol [
+
+	level := aSymbol
 ]
