@@ -9,6 +9,15 @@ Class {
 	#category : #'Barcode-Core-QR'
 }
 
+{ #category : #examples }
+QREncoding class >> example1 [
+
+	^QREncoding 
+		version: 40 
+		mode: QRNumericEncodingMode   
+		errorCorrectionLevel: QRErrorCorrectionLevel levelL
+]
+
 { #category : #'instance creation' }
 QREncoding class >> version: version mode: mode errorCorrectionLevel: errorCorrectionLevel [ 
 
