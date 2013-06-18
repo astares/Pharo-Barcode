@@ -6,6 +6,7 @@ Class {
 
 { #category : #accessing }
 QREncodingMode class >> capacityTable [
+	"Return the capacity table in the form of #((LMQH) (LMQH) (LQMH) ...) for each of the 40 versions."
 
 	^self subclassResponsibility 
 ]
