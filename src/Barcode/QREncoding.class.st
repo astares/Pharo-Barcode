@@ -50,6 +50,21 @@ QREncoding >> mode [
 	^mode
 ]
 
+{ #category : #printing }
+QREncoding >> printOn: aStream [
+
+	aStream 
+		nextPutAll: 'Version: ';
+		nextPutAll: version asString;
+		cr;
+		nextPutAll: 'Mode ';
+		nextPutAll: mode asString;
+		cr;
+		nextPutAll: 'Error correction level: ';
+		nextPutAll: errorCorrectionLevel  asString				 
+
+]
+
 { #category : #accessing }
 QREncoding >> version [
 
