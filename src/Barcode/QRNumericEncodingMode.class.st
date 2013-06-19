@@ -1,5 +1,5 @@
 "
-Numeric mode is for decimal digits 0 through 9.
+Numeric mode is for decimal digits 0 through 9 - so it is just encoding digits, thus being able to pack a lot of data in one picture
 "
 Class {
 	#name : #QRNumericEncodingMode,

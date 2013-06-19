@@ -6,3 +6,9 @@ Class {
 	#superclass : #QREncodingMode,
 	#category : #'Barcode-Core-QR'
 }
+
+{ #category : #accessing }
+QRStructuredAppendMode class >> modeIndicator [
+
+	^'0011'
+]
