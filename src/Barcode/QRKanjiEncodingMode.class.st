@@ -1,3 +1,6 @@
+"
+Kanji mode is for double-byte characters from the Shift JIS character set. While UTF-8 can encode Kanji characters, it must use three or four bytes to do so. Shift JIS, on the other hand, uses just two bytes to encode each Kanji character, so Kanji mode compresses Kanji characters more efficiently. If the entire input string consists of characters in the double-byte range of Shift JIS, use Kanji mode. It is also possible to use multiple modes within the same QR code.
+"
 Class {
 	#name : #QRKanjiEncodingMode,
 	#superclass : #QREncodingMode,

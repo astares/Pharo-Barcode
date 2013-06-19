@@ -1,3 +1,6 @@
+"
+Byte mode, by default, is for characters from the ISO-8859-1 character set. However, some QR code scanners can automatically detect if UTF-8 is used in byte mode instead.
+"
 Class {
 	#name : #QRByteEncodingMode,
 	#superclass : #QREncodingMode,

@@ -1,8 +1,23 @@
+"
+Numeric mode is for decimal digits 0 through 9.
+"
 Class {
 	#name : #QRNumericEncodingMode,
 	#superclass : #QREncodingMode,
 	#category : #'Barcode-Core-QR'
 }
+
+{ #category : #'private accessing' }
+QRNumericEncodingMode class >> allowedCharacters [
+
+	^$1 to: $9
+]
+
+{ #category : #testing }
+QRNumericEncodingMode class >> canEncode: aCharacter [
+
+	^self allowedCharacters includes: aCharacter
+]
 
 { #category : #'private accessing' }
 QRNumericEncodingMode class >> capacityTable [

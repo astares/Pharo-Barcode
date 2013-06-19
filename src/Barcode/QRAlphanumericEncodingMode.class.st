@@ -1,8 +1,28 @@
+"
+Alphanumeric mode is for the decimal digits 0 through 9, as well as uppercase letters (not lowercase!), and the symbols $, %, *, +, -, ., /, and : as well as a space.  
+"
 Class {
 	#name : #QRAlphanumericEncodingMode,
 	#superclass : #QREncodingMode,
 	#category : #'Barcode-Core-QR'
 }
+
+{ #category : #'private accessing' }
+QRAlphanumericEncodingMode class >> allowedCharacters [
+
+	^OrderedCollection new
+			addAll: ($1 to: $9);
+      		addAll: ($A to: $Z);
+			add: Character space;
+			addAll: #($$ $% $* $+ $- $. $/ $:);
+			yourself
+]
+
+{ #category : #testing }
+QRAlphanumericEncodingMode class >> canEncode: aCharacter [
+
+	^self allowedCharacters includes: aCharacter
+]
 
 { #category : #'private accessing' }
 QRAlphanumericEncodingMode class >> capacityTable [

@@ -1,3 +1,6 @@
+"
+Abstract superclass for modes of encoding
+"
 Class {
 	#name : #QREncodingMode,
 	#superclass : #Object,
