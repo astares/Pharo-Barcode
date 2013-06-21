@@ -2,20 +2,20 @@
 Abstract superclass for modes of encoding
 "
 Class {
-	#name : #QREncodingMode,
+	#name : #QREncodableCharacterSet,
 	#superclass : #Object,
 	#category : #'Barcode-Core-QR'
 }
 
 { #category : #accessing }
-QREncodingMode class >> capacityTable [
+QREncodableCharacterSet class >> capacityTable [
 	"Return the capacity table in the form of #((LMQH) (LMQH) (LQMH) ...) for each of the 40 versions."
 
 	^self subclassResponsibility 
 ]
 
 { #category : #accessing }
-QREncodingMode class >> maximumCharacterCapacityForVersion: version withErrorCorrecionLevel: errorCorrectionLevel [ 
+QREncodableCharacterSet class >> maximumCharacterCapacityForVersion: version withErrorCorrecionLevel: errorCorrectionLevel [ 
 	| index |
 	index := {QRErrorCorrectionLevel levelL. 
 			   QRErrorCorrectionLevel levelM. 
@@ -25,7 +25,7 @@ QREncodingMode class >> maximumCharacterCapacityForVersion: version withErrorCor
 ]
 
 { #category : #accessing }
-QREncodingMode class >> modeIndicator [
+QREncodableCharacterSet class >> modeIndicator [
 
 	^self subclassResponsibility 
 ]

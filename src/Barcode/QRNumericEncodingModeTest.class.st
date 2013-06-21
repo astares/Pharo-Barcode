@@ -7,7 +7,7 @@ Class {
 { #category : #tests }
 QRNumericEncodingModeTest >> testAllowedCharacters [
 
-	QRNumericEncodingMode allowedCharacters 
+	QRNumericCharacterSet allowedCharacters 
 		do: [:each | self assert: each isDigit ]
 ]
 
@@ -15,17 +15,17 @@ QRNumericEncodingModeTest >> testAllowedCharacters [
 QRNumericEncodingModeTest >> testCanEncode [
 
 	self 
-		assert: (QRNumericEncodingMode canEncode: $1);
-		assert: (QRNumericEncodingMode canEncode: $2);
-		assert: (QRNumericEncodingMode canEncode: $3);
-		assert: (QRNumericEncodingMode canEncode: $4);
-		assert: (QRNumericEncodingMode canEncode: $5);
-		assert: (QRNumericEncodingMode canEncode: $6);
-		assert: (QRNumericEncodingMode canEncode: $7);
-		assert: (QRNumericEncodingMode canEncode: $8);
-		assert: (QRNumericEncodingMode canEncode: $9).
+		assert: (QRNumericCharacterSet canEncode: $1);
+		assert: (QRNumericCharacterSet canEncode: $2);
+		assert: (QRNumericCharacterSet canEncode: $3);
+		assert: (QRNumericCharacterSet canEncode: $4);
+		assert: (QRNumericCharacterSet canEncode: $5);
+		assert: (QRNumericCharacterSet canEncode: $6);
+		assert: (QRNumericCharacterSet canEncode: $7);
+		assert: (QRNumericCharacterSet canEncode: $8);
+		assert: (QRNumericCharacterSet canEncode: $9).
 	
 	self 
-		deny: (QRNumericEncodingMode canEncode: Character space);
-		deny: (QRNumericEncodingMode canEncode: $A)	
+		deny: (QRNumericCharacterSet canEncode: Character space);
+		deny: (QRNumericCharacterSet canEncode: $A)	
 ]

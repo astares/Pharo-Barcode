@@ -12,7 +12,7 @@ QREncodingTest >> alphanumeric40L [
 
 	^QREncoding 
 		version: 40 
-		mode: QRAlphanumericEncodingMode   
+		characterSet: QRAlphanumericCharacterSet   
 		errorCorrectionLevel: QRErrorCorrectionLevel levelL
 ]
 
@@ -21,7 +21,7 @@ QREncodingTest >> byte40L [
 
 	^QREncoding 
 		version: 40 
-		mode: QRByteEncodingMode   
+		characterSet: QRByteCharacterSet   
 		errorCorrectionLevel: QRErrorCorrectionLevel levelL
 ]
 
@@ -30,7 +30,7 @@ QREncodingTest >> kanji40L [
 
 	^QREncoding 
 		version: 40 
-		mode: QRKanjiEncodingMode   
+		characterSet: QRKanjiCharacterSet   
 		errorCorrectionLevel: QRErrorCorrectionLevel levelL
 ]
 
@@ -39,7 +39,7 @@ QREncodingTest >> numeric40L [
 
 	^QREncoding 
 		version: 40 
-		mode: QRNumericEncodingMode   
+		characterSet: QRNumericCharacterSet   
 		errorCorrectionLevel: QRErrorCorrectionLevel levelL
 ]
 
@@ -49,7 +49,7 @@ QREncodingTest >> setUp [
 	super setUp.
 	encoding := QREncoding 
 					version: 1
-					mode: QRAlphanumericEncodingMode  										
+					characterSet: QRAlphanumericCharacterSet  										
 					errorCorrectionLevel: QRErrorCorrectionLevel levelL.
 	 
 ]
@@ -60,11 +60,11 @@ QREncodingTest >> testInstanceCreation [
 	| instance |
 	instance := QREncoding 
 					version: 1
-					mode: QRNumericEncodingMode 										
+					characterSet: QRNumericCharacterSet 										
 					errorCorrectionLevel: QRErrorCorrectionLevel levelL.
 	self
 		assert: instance version = 1; 
-		assert: instance mode = QRNumericEncodingMode;
+		assert: instance characterSet = QRNumericCharacterSet;
 		assert: instance errorCorrectionLevel = QRErrorCorrectionLevel levelL 
 ]
 

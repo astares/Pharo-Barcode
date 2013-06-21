@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'version',
 		'errorCorrectionLevel',
-		'mode'
+		'characterSet'
 	],
 	#category : #'Barcode-Core-QR'
 }
@@ -14,17 +14,23 @@ QREncoding class >> example1 [
 
 	^QREncoding 
 		version: 40 
-		mode: QRNumericEncodingMode   
+		characterSet: QRNumericCharacterSet   
 		errorCorrectionLevel: QRErrorCorrectionLevel levelL
 ]
 
 { #category : #'instance creation' }
-QREncoding class >> version: version mode: mode errorCorrectionLevel: errorCorrectionLevel [ 
+QREncoding class >> version: version characterSet: characterSet errorCorrectionLevel: errorCorrectionLevel [ 
 
 	^(self new)
-		version: version mode: mode errorCorrectionLevel: errorCorrectionLevel;
+		version: version characterSet: characterSet errorCorrectionLevel: errorCorrectionLevel;
 		yourself
 
+]
+
+{ #category : #accessing }
+QREncoding >> characterSet [
+
+	^characterSet
 ]
 
 { #category : #accessing }
@@ -36,18 +42,12 @@ QREncoding >> errorCorrectionLevel [
 { #category : #accessing }
 QREncoding >> maximumCharacterCapacity [
 	"Return the maximum character capacity of the receiver.
-	 Depending on the mode in use each version has a maximum capacity. In addition, the error 
+	 Depending on the character set in use each version has a maximum capacity. In addition, the error 
 	 correction level restricts the capacity further.
 	"
 	
-	^self mode
+	^self characterSet
 		maximumCharacterCapacityForVersion: version withErrorCorrecionLevel: errorCorrectionLevel  
-]
-
-{ #category : #accessing }
-QREncoding >> mode [
-
-	^mode
 ]
 
 { #category : #printing }
@@ -69,6 +69,14 @@ QREncoding >> printOn: aStream [
 QREncoding >> version [
 
 	^version
+]
+
+{ #category : #accessing }
+QREncoding >> version: aVersion characterSet: aCharacterSet errorCorrectionLevel: anErrorCorrectionLevel [ 
+
+	version := aVersion.
+	characterSet := aCharacterSet.
+	errorCorrectionLevel := anErrorCorrectionLevel
 ]
 
 { #category : #accessing }

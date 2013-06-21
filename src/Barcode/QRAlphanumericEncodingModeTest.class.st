@@ -7,7 +7,7 @@ Class {
 { #category : #tests }
 QRAlphanumericEncodingModeTest >> testAllowedCharacters [
 
-	self assert: QRAlphanumericEncodingMode allowedCharacters size = 44
+	self assert: QRAlphanumericCharacterSet allowedCharacters size = 44
 
 ]
 
@@ -15,23 +15,23 @@ QRAlphanumericEncodingModeTest >> testAllowedCharacters [
 QRAlphanumericEncodingModeTest >> testCanEncode [
 
 	($1 to: $9) do: [:digit | 
-		self assert:  (QRNumericEncodingMode canEncode: digit) ].
+		self assert:  (QRAlphanumericCharacterSet canEncode: digit) ].
 	
 	($A to: $Z) do: [:character | 
-		self assert:  (QRNumericEncodingMode canEncode: character) ].	
+		self assert:  (QRAlphanumericCharacterSet canEncode: character) ].	
 	
 	self 
-		assert: (QRNumericEncodingMode canEncode: Character space);
-		assert: (QRNumericEncodingMode canEncode: $$;
-		assert: (QRNumericEncodingMode canEncode: $%);
-		assert: (QRNumericEncodingMode canEncode: $*);
-		assert: (QRNumericEncodingMode canEncode: $+);	
-		assert: (QRNumericEncodingMode canEncode: $-);
-		assert: (QRNumericEncodingMode canEncode: $.);
-		assert: (QRNumericEncodingMode canEncode: $/);
-		assert: (QRNumericEncodingMode canEncode: $:)).
+		assert: (QRAlphanumericCharacterSet canEncode: Character space);
+		assert: (QRAlphanumericCharacterSet canEncode: $$);
+		assert: (QRAlphanumericCharacterSet canEncode: $%);
+		assert: (QRAlphanumericCharacterSet canEncode: $*);
+		assert: (QRAlphanumericCharacterSet canEncode: $+);	
+		assert: (QRAlphanumericCharacterSet canEncode: $-);
+		assert: (QRAlphanumericCharacterSet canEncode: $.);
+		assert: (QRAlphanumericCharacterSet canEncode: $/);
+		assert: (QRAlphanumericCharacterSet canEncode: $:).
 			
 	self 
-		deny: (QRNumericEncodingMode canEncode: Character tab);
-		deny: (QRNumericEncodingMode canEncode: $a)	 
+		deny: (QRAlphanumericCharacterSet canEncode: Character tab);
+		deny: (QRAlphanumericCharacterSet canEncode: $a)	 
 ]
