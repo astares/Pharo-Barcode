@@ -35,3 +35,9 @@ QRAlphanumericEncodingModeTest >> testCanEncode [
 		deny: (QRAlphanumericCharacterSet canEncode: Character tab);
 		deny: (QRAlphanumericCharacterSet canEncode: $a)	 
 ]
+
+{ #category : #tests }
+QRAlphanumericEncodingModeTest >> testModeIndicator [
+
+	self assert: QRAlphanumericCharacterSet modeIndicator = '0010'
+]
