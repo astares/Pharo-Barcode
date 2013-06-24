@@ -28,6 +28,13 @@ QREncoding class >> version: version characterSet: characterSet errorCorrectionL
 ]
 
 { #category : #accessing }
+QREncoding >> characterCountIndicatorSizeInBits [
+
+	^self characterSet
+		characterCountIndicatorSizeInBitsForVersion: version 
+]
+
+{ #category : #accessing }
 QREncoding >> characterSet [
 
 	^characterSet
@@ -76,13 +83,5 @@ QREncoding >> version: aVersion characterSet: aCharacterSet errorCorrectionLevel
 
 	version := aVersion.
 	characterSet := aCharacterSet.
-	errorCorrectionLevel := anErrorCorrectionLevel
-]
-
-{ #category : #accessing }
-QREncoding >> version: aVersion mode: aMode errorCorrectionLevel: anErrorCorrectionLevel [ 
-
-	version := aVersion.
-	mode := aMode.
 	errorCorrectionLevel := anErrorCorrectionLevel
 ]

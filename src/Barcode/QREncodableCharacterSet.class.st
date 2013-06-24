@@ -15,6 +15,12 @@ QREncodableCharacterSet class >> capacityTable [
 ]
 
 { #category : #accessing }
+QREncodableCharacterSet class >> characterCountIndicatorSizeInBitsForVersion: version [
+
+	self subclassResponsibility 
+]
+
+{ #category : #accessing }
 QREncodableCharacterSet class >> maximumCharacterCapacityForVersion: version withErrorCorrecionLevel: errorCorrectionLevel [ 
 	| index |
 	index := {QRErrorCorrectionLevel levelL. 

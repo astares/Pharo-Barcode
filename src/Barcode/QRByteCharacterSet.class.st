@@ -15,6 +15,14 @@ QRByteCharacterSet class >> capacityTable [
 ]
 
 { #category : #accessing }
+QRByteCharacterSet class >> characterCountIndicatorSizeInBitsForVersion: version [
+
+	((1 to: 9) includes: version) ifTrue: [ ^8 "bits" ].
+	((10 to: 40) includes: version) ifTrue: [ ^16 "bits" ].
+	self error: 'bad version (only 1 to 40 allowed)'
+]
+
+{ #category : #accessing }
 QRByteCharacterSet class >> modeIndicator [
 
 	^'0100'

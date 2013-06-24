@@ -32,6 +32,15 @@ QRAlphanumericCharacterSet class >> capacityTable [
 ]
 
 { #category : #accessing }
+QRAlphanumericCharacterSet class >> characterCountIndicatorSizeInBitsForVersion: version [
+
+	((1 to: 9) includes: version) ifTrue: [ ^9 "bits" ].
+	((10 to: 26) includes: version) ifTrue: [ ^11    "bits" ].
+	((27 to: 40) includes: version) ifTrue: [ ^13 "bits" ].
+	self error: 'bad version (only 1 to 40 allowed)'
+]
+
+{ #category : #accessing }
 QRAlphanumericCharacterSet class >> modeIndicator [
 
 	^'0010'

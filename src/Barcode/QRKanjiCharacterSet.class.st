@@ -15,6 +15,15 @@ QRKanjiCharacterSet class >> capacityTable [
 ]
 
 { #category : #accessing }
+QRKanjiCharacterSet class >> characterCountIndicatorSizeInBitsForVersion: version [
+
+	((1 to: 9) includes: version) ifTrue: [ ^8 "bits" ].
+	((10 to: 26) includes: version) ifTrue: [ ^10 "bits" ].
+	((27 to: 40) includes: version) ifTrue: [ ^12 "bits" ].
+	self error: 'bad version (only 1 to 40 allowed)'
+]
+
+{ #category : #accessing }
 QRKanjiCharacterSet class >> modeIndicator [
 
 	^'1000'
