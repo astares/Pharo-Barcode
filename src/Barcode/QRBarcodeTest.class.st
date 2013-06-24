@@ -38,7 +38,9 @@ QRBarcodeTest >> testCharacterCountIndicator [
 							characterSet: QRAlphanumericCharacterSet  
 							errorCorrectionLevel: QRErrorCorrectionLevel  levelL).	
 	self assert: barcode characterCountIndicator = expectedIndicator.
-	self assert: (barcode binarySequence copyFrom: 5 to: 13) = expectedIndicator					
+	self assert: (barcode binarySequence copyFrom: 5 to: 13) = expectedIndicator. "start at the fifth position after modeIndicator"
+	self assert: (barcode binarySequence copyUpTo: 13) =  '0010000001011'
+					
  				
 ]
 
