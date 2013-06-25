@@ -17,6 +17,7 @@ Barcode class >> value: aValue [
 
 { #category : #accessing }
 Barcode >> value [ 
+	value ifNil: [ value := String new ].
 	^value
 ]
 
