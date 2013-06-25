@@ -11,13 +11,13 @@ Class {
 BarcodeEAN8Test >> setUp [
 
 	super setUp.
-	barcode := BarcodeEAN8 value: '764543210'.
+	barcode := BarcodeEAN8 data: '764543210'.
 ]
 
 { #category : #tests }
 BarcodeEAN8Test >> testBinarySequence [
 
-	barcode value: '12345670'.
+	barcode data: '12345670'.
 	self assert: barcode binarySequence = '1010011001001001101111010100011010101001110101000010001001110010101'	
 	 
 ]
@@ -25,7 +25,7 @@ BarcodeEAN8Test >> testBinarySequence [
 { #category : #tests }
 BarcodeEAN8Test >> testComputeChecksum [
 
-	barcode value: '76543210'.
+	barcode data: '76543210'.
 	self assert: barcode computeChecksum = 0.
 ]
 
@@ -60,6 +60,6 @@ BarcodeEAN8Test >> testRightRuleTable [
 { #category : #tests }
 BarcodeEAN8Test >> testValidChecksum [
 
-	barcode value: '76543210'.
+	barcode data: '76543210'.
 	self assert: barcode hasValidCheckSum 
 ]

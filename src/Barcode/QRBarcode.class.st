@@ -19,7 +19,7 @@ QRBarcode >> binarySequence [
 { #category : #accessing }
 QRBarcode >> characterCountIndicator [
 	|sizeAsBinaryString|
-	sizeAsBinaryString := self value size printStringBase: 2.
+	sizeAsBinaryString := self data size printStringBase: 2.
 	^sizeAsBinaryString padded: #left to: (self encoding characterCountIndicatorSizeInBits) with: $0
 ]
 

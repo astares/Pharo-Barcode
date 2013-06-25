@@ -27,8 +27,8 @@ BarcodeEAN >> binarySequence [
 
 	| left right leftUpTo |
 	leftUpTo := self defaultSize // 2 +  (self defaultSize \\ 2).
-	left := self value copyFrom: 1 to: leftUpTo.
-	right := self value copyFrom: leftUpTo + 1 to: self defaultSize.
+	left := self data copyFrom: 1 to: leftUpTo.
+	right := self data copyFrom: leftUpTo + 1 to: self defaultSize.
 	^String streamContents: [:stream |
 			stream nextPutAll: '101'.
 			self leftBinarySequenceOn: stream for: left.
@@ -44,7 +44,7 @@ BarcodeEAN >> computeChecksum [
 
 	|odd even|
 	odd := 0. even := 0.
-	self value allButLast reverse doWithIndex: [:el : index |
+	self data allButLast reverse doWithIndex: [:el : index |
 		index even 
 			ifTrue: [ even := even + el digitValue ]
 			ifFalse: [ odd := odd + el digitValue ]].
@@ -60,9 +60,9 @@ BarcodeEAN >> defaultSize [
 { #category : #testing }
 BarcodeEAN >> hasValidCheckSum [
 
-	(self value isAllDigits) ifFalse: [ ^false ].
-	(self value size = self defaultSize) ifFalse: [ ^false ].
-	^self computeChecksum = self value last digitValue
+	(self data isAllDigits) ifFalse: [ ^false ].
+	(self data size = self defaultSize) ifFalse: [ ^false ].
+	^self computeChecksum = self data last digitValue
 ]
 
 { #category : #private }

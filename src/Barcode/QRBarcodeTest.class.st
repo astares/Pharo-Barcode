@@ -32,7 +32,7 @@ QRBarcodeTest >> testCharacterCountIndicator [
 	expectedIndicator := '000001011'. "HELLOWORLD has 11 characters, this is binary 1011"
 	self assert: ('2r', expectedIndicator) asNumber =  stringToEncode size.
 	
-	barcode value: 'HELLO WORLD'.
+	barcode data: 'HELLO WORLD'.
 	barcode encoding: (QREncoding
 							version: 1
 							characterSet: QRAlphanumericCharacterSet  

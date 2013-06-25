@@ -2,27 +2,27 @@ Class {
 	#name : #Barcode,
 	#superclass : #Object,
 	#instVars : [
-		'value'
+		'data'
 	],
 	#category : #'Barcode-Core'
 }
 
 { #category : #'instance creation' }
-Barcode class >> value: aValue [
+Barcode class >> data: aString [
 
 	^(self new)
-		value: aValue;
+		data: aString;
 		yourself
 ]
 
 { #category : #accessing }
-Barcode >> value [ 
-	value ifNil: [ value := String new ].
-	^value
+Barcode >> data [ 
+	data ifNil: [ data := String new ].
+	^data
 ]
 
 { #category : #accessing }
-Barcode >> value: aValue [
+Barcode >> data: aString [
 
-	value := aValue
+	data := aString
 ]
