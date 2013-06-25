@@ -10,7 +10,7 @@ Class {
 { #category : #'private accessing' }
 QRNumericCharacterSet class >> allowedCharacters [
 
-	^$1 to: $9
+	^$0 to: $9
 ]
 
 { #category : #testing }
@@ -33,6 +33,13 @@ QRNumericCharacterSet class >> characterCountIndicatorSizeInBitsForVersion: vers
 	((10 to: 26) includes: version) ifTrue: [ ^12 "bits" ].
 	((27 to: 40) includes: version) ifTrue: [ ^14 "bits" ].
 	self error: 'bad version (only 1 to 40 allowed)'
+]
+
+{ #category : #accessing }
+QRNumericCharacterSet class >> encode: aDataString [
+
+	aDataString do: [:character | (self canEncode: character) ifFalse: [ self error: 'Can not encode character' ] ].
+	
 ]
 
 { #category : #accessing }

@@ -31,6 +31,7 @@ QRNumericCharacterSetTest >> testAllowedCharacters [
 QRNumericCharacterSetTest >> testCanEncode [
 
 	self 
+		assert: (characterSet canEncode: $0);
 		assert: (characterSet canEncode: $1);
 		assert: (characterSet canEncode: $2);
 		assert: (characterSet canEncode: $3);
@@ -55,6 +56,20 @@ QRNumericCharacterSetTest >> testCharacterCountIndicatorSizeInBits [
 	   14 14 14 14 14 14 14 14 14 14 14 14 14 14)
 		withIndexDo: [:element :index | 
 			self assert: (characterSet characterCountIndicatorSizeInBitsForVersion: index) = element ]
+]
+
+{ #category : #tests }
+QRNumericCharacterSetTest >> testEncode [
+
+	self assert: (characterSet encode: '867530') = '110110001110000100101001'
+
+
+]
+
+{ #category : #tests }
+QRNumericCharacterSetTest >> testEncodeOnlyNumerics [
+
+	self should: [characterSet encode: 'non numeric content' ] raise: Error.
 ]
 
 { #category : #tests }
