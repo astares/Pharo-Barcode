@@ -1,11 +1,26 @@
 Class {
 	#name : #QRKanjiCharacterSetTest,
 	#superclass : #TestCase,
+	#instVars : [
+		'characterSet'
+	],
 	#category : #'Barcode-Tests-Core-QR'
 }
+
+{ #category : #accessing }
+QRKanjiCharacterSetTest >> defaultTestClass [
+
+	^QRKanjiCharacterSet
+]
+
+{ #category : #running }
+QRKanjiCharacterSetTest >> setUp [ 
+	super setUp.
+	characterSet := self defaultTestClass
+]
 
 { #category : #tests }
 QRKanjiCharacterSetTest >> testModeIndicator [
 
-	self assert: QRKanjiCharacterSet modeIndicator = '1000'
+	self assert: characterSet modeIndicator = '1000'
 ]

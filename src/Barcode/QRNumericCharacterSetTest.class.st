@@ -1,13 +1,29 @@
 Class {
 	#name : #QRNumericCharacterSetTest,
 	#superclass : #TestCase,
+	#instVars : [
+		'characterSet'
+	],
 	#category : #'Barcode-Tests-Core-QR'
 }
+
+{ #category : #accessing }
+QRNumericCharacterSetTest >> defaultTestClass [
+
+	^QRNumericCharacterSet 
+]
+
+{ #category : #running }
+QRNumericCharacterSetTest >> setUp [ 
+
+	super setUp.
+	characterSet := self defaultTestClass.
+]
 
 { #category : #tests }
 QRNumericCharacterSetTest >> testAllowedCharacters [
 
-	QRNumericCharacterSet allowedCharacters 
+	characterSet allowedCharacters 
 		do: [:each | self assert: each isDigit ]
 ]
 
@@ -15,19 +31,19 @@ QRNumericCharacterSetTest >> testAllowedCharacters [
 QRNumericCharacterSetTest >> testCanEncode [
 
 	self 
-		assert: (QRNumericCharacterSet canEncode: $1);
-		assert: (QRNumericCharacterSet canEncode: $2);
-		assert: (QRNumericCharacterSet canEncode: $3);
-		assert: (QRNumericCharacterSet canEncode: $4);
-		assert: (QRNumericCharacterSet canEncode: $5);
-		assert: (QRNumericCharacterSet canEncode: $6);
-		assert: (QRNumericCharacterSet canEncode: $7);
-		assert: (QRNumericCharacterSet canEncode: $8);
-		assert: (QRNumericCharacterSet canEncode: $9).
+		assert: (characterSet canEncode: $1);
+		assert: (characterSet canEncode: $2);
+		assert: (characterSet canEncode: $3);
+		assert: (characterSet canEncode: $4);
+		assert: (characterSet canEncode: $5);
+		assert: (characterSet canEncode: $6);
+		assert: (characterSet canEncode: $7);
+		assert: (characterSet canEncode: $8);
+		assert: (characterSet canEncode: $9).
 	
 	self 
-		deny: (QRNumericCharacterSet canEncode: Character space);
-		deny: (QRNumericCharacterSet canEncode: $A)	
+		deny: (characterSet canEncode: Character space);
+		deny: (characterSet canEncode: $A)	
 ]
 
 { #category : #tests }
@@ -38,11 +54,11 @@ QRNumericCharacterSetTest >> testCharacterCountIndicatorSizeInBits [
 	   12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12
 	   14 14 14 14 14 14 14 14 14 14 14 14 14 14)
 		withIndexDo: [:element :index | 
-			self assert: (QRNumericCharacterSet characterCountIndicatorSizeInBitsForVersion: index) = element ]
+			self assert: (characterSet characterCountIndicatorSizeInBitsForVersion: index) = element ]
 ]
 
 { #category : #tests }
 QRNumericCharacterSetTest >> testModeIndicator [
 
-	self assert: QRNumericCharacterSet modeIndicator = '0001'
+	self assert: characterSet modeIndicator = '0001'
 ]
