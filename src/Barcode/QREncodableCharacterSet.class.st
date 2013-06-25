@@ -20,6 +20,12 @@ QREncodableCharacterSet class >> characterCountIndicatorSizeInBitsForVersion: ve
 	self subclassResponsibility 
 ]
 
+{ #category : #encoding }
+QREncodableCharacterSet class >> encode: aDataString [
+
+	self subclassResponsibility 
+]
+
 { #category : #accessing }
 QREncodableCharacterSet class >> maximumCharacterCapacityForVersion: version withErrorCorrecionLevel: errorCorrectionLevel [ 
 	| index |

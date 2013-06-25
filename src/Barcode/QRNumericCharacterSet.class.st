@@ -38,7 +38,12 @@ QRNumericCharacterSet class >> characterCountIndicatorSizeInBitsForVersion: vers
 { #category : #accessing }
 QRNumericCharacterSet class >> encode: aDataString [
 
-	aDataString do: [:character | (self canEncode: character) ifFalse: [ self error: 'Can not encode character' ] ].
+	aDataString do: [:character | (self canEncode: character) ifFalse: [ self error: 'Can not encode character' ]].
+	
+	^String streamContents: [:stream |
+		(aDataString splitIntoChunksOfMaxSize: 3) do: [:each |
+			stream nextPutAll: ((each asNumber printStringRadix: 2) allButFirst: 2) ]]
+	
 	
 ]
 
