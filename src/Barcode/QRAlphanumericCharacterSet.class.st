@@ -40,6 +40,13 @@ QRAlphanumericCharacterSet class >> characterCountIndicatorSizeInBitsForVersion:
 	self error: 'bad version (only 1 to 40 allowed)'
 ]
 
+{ #category : #encoding }
+QRAlphanumericCharacterSet class >> encode: aDataString [
+
+	self verifyEncodable: aDataString.
+	
+]
+
 { #category : #accessing }
 QRAlphanumericCharacterSet class >> modeIndicator [
 

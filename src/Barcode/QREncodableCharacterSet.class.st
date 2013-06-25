@@ -41,3 +41,9 @@ QREncodableCharacterSet class >> modeIndicator [
 
 	^self subclassResponsibility 
 ]
+
+{ #category : #private }
+QREncodableCharacterSet class >> verifyEncodable: aDataString [
+
+	aDataString do: [:character | (self canEncode: character) ifFalse: [ self error: 'Can not encode character' ]].
+]

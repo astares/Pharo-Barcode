@@ -67,7 +67,7 @@ QRNumericCharacterSetTest >> testEncode [
 ]
 
 { #category : #tests }
-QRNumericCharacterSetTest >> testEncodeOnlyNumerics [
+QRNumericCharacterSetTest >> testEncodeOnlyNumericCharacters [
 
 	self should: [characterSet encode: 'non numeric content' ] raise: Error.
 ]

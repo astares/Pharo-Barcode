@@ -63,6 +63,20 @@ QRAlphanumericCharacterSetTest >> testCharacterCountIndicatorSizeInBits [
 ]
 
 { #category : #tests }
+QRAlphanumericCharacterSetTest >> testEncode [
+
+	self assert: (characterSet encode: 'HELLO WORLD') = '01100001011...'
+
+
+]
+
+{ #category : #tests }
+QRAlphanumericCharacterSetTest >> testEncodeOnlyAlphanumericCharacters [
+
+	self should: [characterSet encode: '<>' ] raise: Error.
+]
+
+{ #category : #tests }
 QRAlphanumericCharacterSetTest >> testModeIndicator [
 
 	self assert: characterSet modeIndicator = '0010'
