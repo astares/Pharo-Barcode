@@ -65,7 +65,7 @@ QRAlphanumericCharacterSetTest >> testCharacterCountIndicatorSizeInBits [
 { #category : #tests }
 QRAlphanumericCharacterSetTest >> testEncode [
 
-	self assert: (characterSet encode: 'HELLO WORLD') = '01100001011...'
+	self assert: (characterSet encode: 'HELLO WORLD') = '0110000101101111000110100010111001011011100010011010100001101'
 
 
 ]

@@ -42,8 +42,21 @@ QRAlphanumericCharacterSet class >> characterCountIndicatorSizeInBitsForVersion:
 
 { #category : #encoding }
 QRAlphanumericCharacterSet class >> encode: aDataString [
-
+	"
+	For each pair of characters, get the number representation (from the alphanumeric table) of the first character and multiply it by 45. Then add that number to the number representation of the second character.
+	Convert that number into an 11-bit binary string, padding on the left with 0s if necessary.
+	If you are encoding an odd number of characters, take the numeric representation of the final character and convert it into a 6-bit binary string."
+	
+	|value padTo|
 	self verifyEncodable: aDataString.
+	
+	^String streamContents: [:stream |
+		(aDataString splitIntoChunksOfMaxSize: 2) do: [:each |	
+			value := (self allowedCharacters indexOf: each first).
+			padTo := 6.
+			each size > 1 ifTrue: [ value := value * 45 + (self allowedCharacters indexOf: each second). padTo := 11]	.			   
+			stream nextPutAll: (((value asNumber printStringRadix: 2) allButFirst: 2) padLeftTo: padTo with: $0) ]]
+	
 	
 ]
 
