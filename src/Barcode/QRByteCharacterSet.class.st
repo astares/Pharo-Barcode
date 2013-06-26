@@ -7,7 +7,13 @@ Class {
 	#category : #'Barcode-Core-QR'
 }
 
-{ #category : #accessing }
+{ #category : #testing }
+QRByteCharacterSet class >> canEncode: aCharacter [
+
+	^aCharacter asInteger < 256
+]
+
+{ #category : #'private accessing' }
 QRByteCharacterSet class >> capacityTable [
 	"Return the capacity table in the form of #((LMQH) (LMQH) (LQMH) ...) for each of the 40 versions."
 
@@ -20,6 +26,17 @@ QRByteCharacterSet class >> characterCountIndicatorSizeInBitsForVersion: version
 	((1 to: 9) includes: version) ifTrue: [ ^8 "bits" ].
 	((10 to: 40) includes: version) ifTrue: [ ^16 "bits" ].
 	self error: 'bad version (only 1 to 40 allowed)'
+]
+
+{ #category : #encoding }
+QRByteCharacterSet class >> encode: aDataString [
+ 
+	self verifyEncodable: aDataString.
+	
+	^String streamContents: [:stream |
+		aDataString do: [:character |				 		   
+			stream nextPutAll: (((character asInteger printStringRadix: 2) allButFirst: 2) padLeftTo: 8 with: $0) ]]
+	
 ]
 
 { #category : #accessing }
