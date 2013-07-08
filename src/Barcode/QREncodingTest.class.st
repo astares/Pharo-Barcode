@@ -65,7 +65,7 @@ QREncodingTest >> testInstanceCreation [
 					errorCorrectionLevel: QRErrorCorrectionLevel levelL
 					characterSet: QRNumericCharacterSet .
 	self
-		assert: instance version = 1; 
+		assert: instance version = 1 asQRVersion; 
 		assert: instance characterSet = QRNumericCharacterSet;
 		assert: instance errorCorrectionLevel = QRErrorCorrectionLevel levelL 
 ]

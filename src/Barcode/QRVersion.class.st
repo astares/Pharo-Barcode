@@ -7,6 +7,12 @@ Class {
 	#category : #'Barcode-Core-QR'
 }
 
+{ #category : #conversion }
+QRVersion class >> asQRVersion [
+
+	^self
+]
+
 { #category : #'instance creation' }
 QRVersion class >> nr: aVersionNumber [
 
@@ -16,8 +22,9 @@ QRVersion class >> nr: aVersionNumber [
 ]
 
 { #category : #accessing }
-QRVersion >> sizeInPixels [
-
+QRVersion >> symbolSizeInPixels [
+	"Returns the sybol size - not including the quiet zone"
+	
 	^17 + (self version * 4)
 ]
 

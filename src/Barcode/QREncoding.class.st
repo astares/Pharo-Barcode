@@ -13,7 +13,7 @@ Class {
 QREncoding class >> example1 [
 
 	^QREncoding 
-		version: 40
+		version: 40 asQRVersion
 		errorCorrectionLevel: QRErrorCorrectionLevel levelL
 		characterSet: QRNumericCharacterSet   
 		
@@ -23,7 +23,7 @@ QREncoding class >> example1 [
 QREncoding class >> version: version errorCorrectionLevel: errorCorrectionLevel characterSet: characterSet [
 
 	^(self new)
-		version: version errorCorrectionLevel: errorCorrectionLevel characterSet: characterSet ;
+		version: version asQRVersion errorCorrectionLevel: errorCorrectionLevel characterSet: characterSet ;
 		yourself
 
 ]
