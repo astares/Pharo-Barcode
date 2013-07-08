@@ -13,16 +13,17 @@ Class {
 QREncoding class >> example1 [
 
 	^QREncoding 
-		version: 40 
-		characterSet: QRNumericCharacterSet   
+		version: 40
 		errorCorrectionLevel: QRErrorCorrectionLevel levelL
+		characterSet: QRNumericCharacterSet   
+		
 ]
 
 { #category : #'instance creation' }
-QREncoding class >> version: version characterSet: characterSet errorCorrectionLevel: errorCorrectionLevel [ 
+QREncoding class >> version: version errorCorrectionLevel: errorCorrectionLevel characterSet: characterSet [
 
 	^(self new)
-		version: version characterSet: characterSet errorCorrectionLevel: errorCorrectionLevel;
+		version: version errorCorrectionLevel: errorCorrectionLevel characterSet: characterSet ;
 		yourself
 
 ]
@@ -64,8 +65,8 @@ QREncoding >> printOn: aStream [
 		nextPutAll: 'Version: ';
 		nextPutAll: version asString;
 		cr;
-		nextPutAll: 'Mode ';
-		nextPutAll: mode asString;
+		nextPutAll: 'Chaacter Set ';
+		nextPutAll: characterSet asString;
 		cr;
 		nextPutAll: 'Error correction level: ';
 		nextPutAll: errorCorrectionLevel  asString				 
@@ -79,9 +80,10 @@ QREncoding >> version [
 ]
 
 { #category : #accessing }
-QREncoding >> version: aVersion characterSet: aCharacterSet errorCorrectionLevel: anErrorCorrectionLevel [ 
+QREncoding >> version: aVersion errorCorrectionLevel: anErrorCorrectionLevel characterSet: aCharacterSet [
 
 	version := aVersion.
-	characterSet := aCharacterSet.
-	errorCorrectionLevel := anErrorCorrectionLevel
+	errorCorrectionLevel := anErrorCorrectionLevel.
+	characterSet := aCharacterSet
+	
 ]

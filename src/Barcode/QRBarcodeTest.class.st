@@ -13,9 +13,9 @@ QRBarcodeTest >> setUp [
 	super setUp.
 	barcode := QRBarcode new.
 	barcode encoding: (QREncoding
-							version: 40
-							characterSet: QRByteCharacterSet
-							errorCorrectionLevel: QRErrorCorrectionLevel  levelL).	
+							version: 40							
+							errorCorrectionLevel: QRErrorCorrectionLevel  levelL
+							characterSet: QRByteCharacterSet).	
  				
 ]
 
@@ -34,9 +34,9 @@ QRBarcodeTest >> testCharacterCountIndicator [
 	
 	barcode data: 'HELLO WORLD'.
 	barcode encoding: (QREncoding
-							version: 1
-							characterSet: QRAlphanumericCharacterSet  
-							errorCorrectionLevel: QRErrorCorrectionLevel  levelL).	
+							version: 1							 
+							errorCorrectionLevel: QRErrorCorrectionLevel  levelL
+							characterSet: QRAlphanumericCharacterSet).	
 	self assert: barcode characterCountIndicator = expectedIndicator.
 	self assert: (barcode binarySequence copyFrom: 5 to: 13) = expectedIndicator. "start at the fifth position after modeIndicator"
 	self assert: (barcode binarySequence copyUpTo: 13) =  '0010000001011'
@@ -58,8 +58,8 @@ QRBarcodeTest >> testModeIndicator [
 	characterSet := QRAlphanumericCharacterSet.
 	barcode encoding: (QREncoding
 							version: 1
-							characterSet: characterSet 
-							errorCorrectionLevel: QRErrorCorrectionLevel  levelL).	
+							errorCorrectionLevel: QRErrorCorrectionLevel  levelL
+							characterSet: characterSet).	
 	self assert: (barcode binarySequence copyFrom: 1 to: 4) = characterSet modeIndicator 							
  				
 ]
