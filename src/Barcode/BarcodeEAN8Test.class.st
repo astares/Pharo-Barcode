@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'barcode'
 	],
-	#category : #'Barcode-Tests-Core'
+	#category : #'Barcode-Tests-Core-EAN'
 }
 
 { #category : #running }
