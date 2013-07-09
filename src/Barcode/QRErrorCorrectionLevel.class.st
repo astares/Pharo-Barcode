@@ -8,7 +8,7 @@ Class {
 	#category : #'Barcode-Core-QR'
 }
 
-{ #category : #'instance creation' }
+{ #category : #private }
 QRErrorCorrectionLevel class >> level: aSymbol errorCorrectionCapability: aNumber [
 
 	^(self new)
@@ -17,7 +17,7 @@ QRErrorCorrectionLevel class >> level: aSymbol errorCorrectionCapability: aNumbe
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : #defaults }
 QRErrorCorrectionLevel class >> levelH [
 	"Recovers 30% of data"
 	

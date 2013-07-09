@@ -7,8 +7,14 @@ Class {
 { #category : #tests }
 QRVersionTest >> testBadVersion [
 
-	self should: [ QRBarcode nr: 0 ] raise: Error 
+	self should: [ QRVersion nr: 0 ] raise: Error 
 	
+]
+
+{ #category : #tests }
+QRVersionTest >> testConversion [
+
+	self assert: 1 asQRVersion = (QRVersion nr: 1)
 ]
 
 { #category : #tests }
@@ -16,13 +22,13 @@ QRVersionTest >> testInstanceCreation [
 
 	| instance |
 	instance := (QRVersion nr: 1).
-	self assert: instance version  = 1
+	self assert: instance number  = 1
 ]
 
 { #category : #tests }
 QRVersionTest >> testInstanceCreationFromInteger [
 
-	self assert: 1 asQRVersion version = 1
+	self assert: 1 asQRVersion number = 1
 ]
 
 { #category : #tests }

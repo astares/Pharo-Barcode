@@ -32,7 +32,7 @@ QREncoding class >> version: version errorCorrectionLevel: errorCorrectionLevel 
 QREncoding >> characterCountIndicatorSizeInBits [
 
 	^self characterSet
-		characterCountIndicatorSizeInBitsForVersion: version 
+		characterCountIndicatorSizeInBitsForVersion: version number
 ]
 
 { #category : #accessing }

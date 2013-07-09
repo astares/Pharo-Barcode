@@ -33,7 +33,7 @@ QREncodableCharacterSet class >> maximumCharacterCapacityForVersion: version wit
 			   QRErrorCorrectionLevel levelM. 
 			   QRErrorCorrectionLevel levelQ. 
 			   QRErrorCorrectionLevel levelH} indexOf: errorCorrectionLevel.  
-	^(self capacityTable at: version) at: index
+	^(self capacityTable at: version number) at: index
 ]
 
 { #category : #accessing }
