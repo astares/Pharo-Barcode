@@ -124,7 +124,7 @@ QRBlockInformation >> specArray: anArray [
 ]
 
 { #category : #accessing }
-QRBlockInformation >> totalNumberOfCodewords [
+QRBlockInformation >> totalNumberOfDataCodewords [
 
 	^self specArray first
 ]

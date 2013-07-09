@@ -74,6 +74,14 @@ QREncoding >> printOn: aStream [
 ]
 
 { #category : #accessing }
+QREncoding >> totalNumberOfDataCodewords [
+
+	|blockInfo|
+	blockInfo := QRBlockInformation version: self version errorCorrection: self errorCorrection.
+	^blockInfo totalNumberOfDataCodewords
+]
+
+{ #category : #accessing }
 QREncoding >> version [
 
 	^version

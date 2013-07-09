@@ -29,7 +29,7 @@ QRBlockInformationTest >> testBlockInfoTotalDataCodewords [
 			info := self defaultTestClass fromSpecArray: spec.
 			totalDataCodewords := info numberOfDataCodewordsInEachOfGroup1sBlocks * info numberOfBocksInGroup1.
 			info hasExtendedSpec ifTrue: [ totalDataCodewords := totalDataCodewords + (info numberOfDataCodewordsInEachOfGroup2sBlocks * info numberOfBocksInGroup2) ].
-			self assert: info totalNumberOfCodewords = totalDataCodewords ]]
+			self assert: info totalNumberOfDataCodewords = totalDataCodewords ]]
 
 	 
 ]
@@ -41,7 +41,7 @@ QRBlockInformationTest >> testInstanceCreation [
 	info := self defaultTestClass 
 				version: 1 asQRVersion															
 				errorCorrection: QRErrorCorrection levelL.
-	self assert: info totalNumberOfCodewords = 19.
+	self assert: info totalNumberOfDataCodewords = 19.
 	self assert: info errorCorrectionCodewordsPerBlock = 7.
 	self assert: info numberOfBocksInGroup1 = 1.
 	self assert: info numberOfDataCodewordsInEachOfGroup1sBlocks = 19.				
@@ -56,7 +56,7 @@ QRBlockInformationTest >> testInstanceCreation5Q [
 	info := self defaultTestClass 
 				version: 5 asQRVersion															
 				errorCorrection: QRErrorCorrection levelQ.	
-	self assert: info totalNumberOfCodewords = 62.
+	self assert: info totalNumberOfDataCodewords = 62.
 	self assert: info errorCorrectionCodewordsPerBlock = 18.
 	self assert: info numberOfBocksInGroup1 = 2.
 	self assert: info numberOfDataCodewordsInEachOfGroup1sBlocks = 15.	

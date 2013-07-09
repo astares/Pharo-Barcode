@@ -80,3 +80,15 @@ QREncodingTest >> testMaximumCharacterCapacity [
 	self assert: self byte40L maximumCharacterCapacity = 2953.
 	self assert: self kanji40L maximumCharacterCapacity = 1817.
 ]
+
+{ #category : #tests }
+QREncodingTest >> testTotalNumberOfDataCodewords [
+
+	| instance |
+	instance := QREncoding 
+					version: 1 asQRVersion															
+					errorCorrection: QRErrorCorrection levelQ
+					characterSet: QRNumericCharacterSet.
+					
+	self assert: instance totalNumberOfDataCodewords = 13
+]
