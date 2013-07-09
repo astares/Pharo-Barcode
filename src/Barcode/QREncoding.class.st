@@ -55,7 +55,7 @@ QREncoding >> maximumCharacterCapacity [
 	"
 	
 	^self characterSet
-		maximumCharacterCapacityForVersion: version withErrorCorrecionLevel: self errorCorrection
+		maximumCharacterCapacityForVersion: version withErrorCorrection: self errorCorrection
 ]
 
 { #category : #printing }
@@ -63,13 +63,13 @@ QREncoding >> printOn: aStream [
 
 	aStream 
 		nextPutAll: 'Version: ';
-		nextPutAll: version asString;
+		nextPutAll: self version asString;
 		cr;
 		nextPutAll: 'Chaacter Set ';
-		nextPutAll: characterSet asString;
+		nextPutAll: self characterSet asString;
 		cr;
 		nextPutAll: 'Error correction level: ';
-		nextPutAll: errorCorrectionLevel  asString				 
+		nextPutAll: self errorCorrection asString				 
 
 ]
 

@@ -27,12 +27,12 @@ QREncodableCharacterSet class >> encode: aDataString [
 ]
 
 { #category : #accessing }
-QREncodableCharacterSet class >> maximumCharacterCapacityForVersion: version withErrorCorrecionLevel: errorCorrectionLevel [ 
+QREncodableCharacterSet class >> maximumCharacterCapacityForVersion: version withErrorCorrection: errorCorrection [ 
 	| index |
 	index := {QRErrorCorrection levelL. 
 			   QRErrorCorrection levelM. 
 			   QRErrorCorrection levelQ. 
-			   QRErrorCorrection levelH} indexOf: errorCorrectionLevel.  
+			   QRErrorCorrection levelH} indexOf: errorCorrection.  
 	^(self capacityTable at: version number) at: index
 ]
 

@@ -62,14 +62,14 @@ QRBlockInformation class >> fromSpecArray: anArray [
 ]
 
 { #category : #'instance creation' }
-QRBlockInformation class >> version: aQRVersion errorCorrection: aQRErrorCorrectionLevel [ 
+QRBlockInformation class >> version: aVersion errorCorrection: anErrorCorrection [ 
 	|row lookup spec |
 	lookup := { QRErrorCorrection levelL. 
 				QRErrorCorrection levelM. 
 				QRErrorCorrection levelQ. 
 				QRErrorCorrection levelH }.
-	row := (self blockInfoTable at: aQRVersion asQRVersion number).
-	spec := row at: (lookup indexOf: aQRErrorCorrectionLevel).
+	row := (self blockInfoTable at: aVersion asQRVersion number).
+	spec := row at: (lookup indexOf: anErrorCorrection).
 	^self fromSpecArray:  spec
 ]
 
