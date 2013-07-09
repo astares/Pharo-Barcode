@@ -1,5 +1,5 @@
 Class {
-	#name : #QRErrorCorrectionLevel,
+	#name : #QRErrorCorrection,
 	#superclass : #Object,
 	#instVars : [
 		'level',
@@ -9,7 +9,7 @@ Class {
 }
 
 { #category : #private }
-QRErrorCorrectionLevel class >> level: aSymbol errorCorrectionCapability: aNumber [
+QRErrorCorrection class >> level: aSymbol errorCorrectionCapability: aNumber [
 
 	^(self new)
 		level: aSymbol;
@@ -18,66 +18,66 @@ QRErrorCorrectionLevel class >> level: aSymbol errorCorrectionCapability: aNumbe
 ]
 
 { #category : #defaults }
-QRErrorCorrectionLevel class >> levelH [
+QRErrorCorrection class >> levelH [
 	"Recovers 30% of data"
 	
 	^self level: #H errorCorrectionCapability: 30
 ]
 
 { #category : #defaults }
-QRErrorCorrectionLevel class >> levelL [
+QRErrorCorrection class >> levelL [
 	"Recovers 7% of data"
 	
 	^self level: #L errorCorrectionCapability: 7
 ]
 
 { #category : #defaults }
-QRErrorCorrectionLevel class >> levelM [
+QRErrorCorrection class >> levelM [
 	"Recovers 15% of data"
 	
 	^self level: #M errorCorrectionCapability: 15
 ]
 
 { #category : #defaults }
-QRErrorCorrectionLevel class >> levelQ [
+QRErrorCorrection class >> levelQ [
 	"Recovers 25% of data"
 	
 	^self level: #Q errorCorrectionCapability: 25
 ]
 
 { #category : #comparing }
-QRErrorCorrectionLevel >> = anotherErrorCorrectionLevel [ 
+QRErrorCorrection >> = anotherErrorCorrection [
 	
-	^self level = anotherErrorCorrectionLevel level 
-		and: [ self  errorCorrectionCapability = anotherErrorCorrectionLevel errorCorrectionCapability ] 
+	^self level = anotherErrorCorrection level 
+		and: [ self  errorCorrectionCapability = anotherErrorCorrection errorCorrectionCapability ] 
 ]
 
 { #category : #accessing }
-QRErrorCorrectionLevel >> errorCorrectionCapability [
+QRErrorCorrection >> errorCorrectionCapability [
 
 	^errorCorrectionCapability
 ]
 
 { #category : #accessing }
-QRErrorCorrectionLevel >> errorCorrectionCapability: aNumber [
+QRErrorCorrection >> errorCorrectionCapability: aNumber [
 
 	errorCorrectionCapability := aNumber
 ]
 
 { #category : #accessing }
-QRErrorCorrectionLevel >> level [
+QRErrorCorrection >> level [
 
 	^level
 ]
 
 { #category : #accessing }
-QRErrorCorrectionLevel >> level: aSymbol [
+QRErrorCorrection >> level: aSymbol [
 
 	level := aSymbol
 ]
 
 { #category : #printing }
-QRErrorCorrectionLevel >> printOn: aStream [
+QRErrorCorrection >> printOn: aStream [
 
 	aStream 
 		nextPutAll: 'Error Correction Level ';

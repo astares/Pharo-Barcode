@@ -40,7 +40,7 @@ QRBlockInformationTest >> testInstanceCreation [
 	| info |
 	info := self defaultTestClass 
 				version: 1 asQRVersion															
-				errorCorrectionLevel: QRErrorCorrectionLevel levelL.
+				errorCorrection: QRErrorCorrection levelL.
 	self assert: info totalNumberOfCodewords = 19.
 	self assert: info errorCorrectionCodewordsPerBlock = 7.
 	self assert: info numberOfBocksInGroup1 = 1.
@@ -55,7 +55,7 @@ QRBlockInformationTest >> testInstanceCreation5Q [
 	| info |
 	info := self defaultTestClass 
 				version: 5 asQRVersion															
-				errorCorrectionLevel: QRErrorCorrectionLevel levelQ.	
+				errorCorrection: QRErrorCorrection levelQ.	
 	self assert: info totalNumberOfCodewords = 62.
 	self assert: info errorCorrectionCodewordsPerBlock = 18.
 	self assert: info numberOfBocksInGroup1 = 2.

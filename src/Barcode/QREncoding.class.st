@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'version',
-		'errorCorrectionLevel',
+		'errorCorrection',
 		'characterSet'
 	],
 	#category : #'Barcode-Core-QR'
@@ -14,16 +14,16 @@ QREncoding class >> example1 [
 
 	^QREncoding 
 		version: 40 asQRVersion
-		errorCorrectionLevel: QRErrorCorrectionLevel levelL
+		errorCorrection: QRErrorCorrection levelL
 		characterSet: QRNumericCharacterSet   
 		
 ]
 
 { #category : #'instance creation' }
-QREncoding class >> version: version errorCorrectionLevel: errorCorrectionLevel characterSet: characterSet [
+QREncoding class >> version: version errorCorrection: errorCorrection characterSet: characterSet [
 
 	^(self new)
-		version: version asQRVersion errorCorrectionLevel: errorCorrectionLevel characterSet: characterSet ;
+		version: version asQRVersion errorCorrection: errorCorrection characterSet: characterSet ;
 		yourself
 
 ]
@@ -42,9 +42,9 @@ QREncoding >> characterSet [
 ]
 
 { #category : #accessing }
-QREncoding >> errorCorrectionLevel [
+QREncoding >> errorCorrection [ 
 
-	^errorCorrectionLevel
+	^errorCorrection 
 ]
 
 { #category : #accessing }
@@ -55,7 +55,7 @@ QREncoding >> maximumCharacterCapacity [
 	"
 	
 	^self characterSet
-		maximumCharacterCapacityForVersion: version withErrorCorrecionLevel: errorCorrectionLevel  
+		maximumCharacterCapacityForVersion: version withErrorCorrecionLevel: self errorCorrection
 ]
 
 { #category : #printing }
@@ -80,10 +80,10 @@ QREncoding >> version [
 ]
 
 { #category : #accessing }
-QREncoding >> version: aVersion errorCorrectionLevel: anErrorCorrectionLevel characterSet: aCharacterSet [
+QREncoding >> version: aVersion errorCorrection: anErrorCorrection characterSet: aCharacterSet [
 
 	version := aVersion.
-	errorCorrectionLevel := anErrorCorrectionLevel.
+	errorCorrection := anErrorCorrection.
 	characterSet := aCharacterSet
 	
 ]
