@@ -10,16 +10,21 @@ Class {
 { #category : #accessing }
 QRBarcode >> binarySequence [
 
-	| totalNumberOfBitsRequired |
+	| totalNumberOfBitsRequired dataBits terminatorsAdded |
 	totalNumberOfBitsRequired := self encoding totalNumberOfDataCodewords * 8.
-	totalNumberOfBitsRequired halt. 
+	dataBits := self dataBitsString.
 	
-	"If the bit string is shorter than the total number of required bits, a terminator of up to four 0s must be added to the right side of the string. If the bit string is more than four bits shorter than the required number of bits, add four 0s to the end. If the bit string is fewer than four bits shorter, add only the number of 0s that are needed to reach the required number of bits."
+	terminatorsAdded := 0.  
+	"Nothing more than 4 terminating zeros to be added as terminator"
+	[ dataBits size < totalNumberOfBitsRequired
+		and: [ terminatorsAdded <= 4 ]]
+			whileTrue: [ dataBits := dataBits padRightTo: dataBits size + 1 with: $0.  
+						 terminatorsAdded := terminatorsAdded + 1].
 	
-	^String streamContents: [:stream |
-		stream 
-			nextPutAll: self encoding characterSet modeIndicator;
-		 	nextPutAll: self characterCountIndicator ]
+	
+	 
+	
+	^dataBits
 ]
 
 { #category : #accessing }
@@ -27,6 +32,16 @@ QRBarcode >> characterCountIndicator [
 	|sizeAsBinaryString|
 	sizeAsBinaryString := self data size printStringBase: 2.
 	^sizeAsBinaryString padded: #left to: (self encoding characterCountIndicatorSizeInBits) with: $0
+]
+
+{ #category : #private }
+QRBarcode >> dataBitsString [
+
+	^String streamContents: [:stream |
+		stream 
+			nextPutAll: self encoding characterSet modeIndicator;
+		 	nextPutAll: self characterCountIndicator;
+			nextPutAll: (self encoding characterSet encode: self data) ] 
 ]
 
 { #category : #accessing }

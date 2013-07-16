@@ -35,13 +35,13 @@ QRBarcodeTest >> testCharacterCountIndicator [
 	barcode data: 'HELLO WORLD'.
 	barcode encoding: (QREncoding
 							version: 1							 
-							errorCorrection: QRErrorCorrection  levelL
+							errorCorrection: QRErrorCorrection  levelQ
 							characterSet: QRAlphanumericCharacterSet).	
 	self assert: barcode characterCountIndicator = expectedIndicator.
 	self assert: (barcode binarySequence copyFrom: 5 to: 13) = expectedIndicator. "start at the fifth position after modeIndicator"
-	self assert: (barcode binarySequence copyUpTo: 13) =  '0010000001011'
-					
- 				
+	self assert: (barcode binarySequence copyFrom: 1 to: 13) =  '0010000001011'.
+									
+	self assert: barcode dataBitsString = '00100000010110110000101101111000110100010111001011011100010011010100001101'
 ]
 
 { #category : #tests }
