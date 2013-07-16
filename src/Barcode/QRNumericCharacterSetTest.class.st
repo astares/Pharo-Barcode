@@ -61,7 +61,9 @@ QRNumericCharacterSetTest >> testCharacterCountIndicatorSizeInBits [
 { #category : #tests }
 QRNumericCharacterSetTest >> testEncode [
 
-	self assert: (characterSet encode: '8675309') = '110110001110000100101001'
+	self assert: (characterSet encode: '8675309')   = '110110001110000100101001'.
+	
+	self assert: (characterSet encode: '01234567') = '000000110001010110011000011'.
 
 
 ]
@@ -81,6 +83,19 @@ QRNumericCharacterSetTest >> testEncodeWithLeadingZeros [
 		
 	self assert: (characterSet encode: '00909') = '10011001'.
 	self assert: (characterSet encode: '009009') = '10011001'  "gives same bit pattern"
+]
+
+{ #category : #'tests-iso spec' }
+QRNumericCharacterSetTest >> testISOSpecExample1 [
+	|barcode|
+	barcode := QRBarcode new.
+	barcode data: '01234567'. 
+	barcode encoding: (QREncoding
+							version: 1							
+							errorCorrection: QRErrorCorrection levelH
+							characterSet: QRNumericCharacterSet).	
+	barcode halt binarySequence  							
+ 				
 ]
 
 { #category : #tests }

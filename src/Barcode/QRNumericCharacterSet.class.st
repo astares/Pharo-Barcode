@@ -37,12 +37,13 @@ QRNumericCharacterSet class >> characterCountIndicatorSizeInBitsForVersion: vers
 
 { #category : #accessing }
 QRNumericCharacterSet class >> encode: aDataString [
-
+	"The input data string is divided into groups of three digits, and each group is converted to its 10 bit binary equivalent. If the number of input digits is not an exact multiple of three, the final one or two digits are converted to 4 or 7 bits respectively."
+	|bitsToUse|
 	self verifyEncodable: aDataString.
-	
+	bitsToUse := #(4 7 10).
 	^String streamContents: [:stream |
 		(aDataString splitIntoChunksOfMaxSize: 3) do: [:each |
-			stream nextPutAll: ((each asNumber printStringRadix: 2) allButFirst: 2) ]]
+			stream nextPutAll: (((each asNumber printStringRadix: 2) allButFirst: 2) padLeftTo: (bitsToUse at: each size) with: $0)  ]]
 	
 	
 ]
