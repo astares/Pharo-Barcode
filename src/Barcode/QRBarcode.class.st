@@ -21,10 +21,13 @@ QRBarcode >> binarySequence [
 			whileTrue: [ dataBits := dataBits padRightTo: dataBits size + 1 with: $0.  
 						 terminatorsAdded := terminatorsAdded + 1].
 	
-	
+	"Add more 0s to make the length a multiple of 8"
+	[dataBits size \\ 8 = 0] whileFalse: [ dataBits := dataBits padRightTo: dataBits size + 1 with: $0]. 
 	 
-	
-	^dataBits
+	"Add pad bytes (236 and 17) if the string is still too short "
+	[dataBits size < totalNumberOfBitsRequired] whileTrue: [ dataBits := dataBits , '1110110000010001' ].
+		 
+	^dataBits copyFrom: 1 to: totalNumberOfBitsRequired 
 ]
 
 { #category : #accessing }
