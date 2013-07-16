@@ -76,6 +76,18 @@ QRAlphanumericCharacterSetTest >> testEncodeOnlyAlphanumericCharacters [
 	self should: [characterSet encode: '<>' ] raise: Error.
 ]
 
+{ #category : #'tests-iso spec' }
+QRAlphanumericCharacterSetTest >> testISOSpecExample1 [
+	|barcode|
+	barcode := QRBarcode new.
+	barcode data: 'AC-42'. 
+	barcode encoding: (QREncoding
+							version: 1							
+							errorCorrection: QRErrorCorrection levelH
+							characterSet: self defaultTestClass).	
+	self assert: (barcode binarySequence copyFrom: 1 to: 41) =  ('0010','000000101','00111001110','11100111001','000010')  
+]
+
 { #category : #tests }
 QRAlphanumericCharacterSetTest >> testModeIndicator [
 

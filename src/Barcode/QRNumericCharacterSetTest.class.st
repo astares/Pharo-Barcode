@@ -64,6 +64,7 @@ QRNumericCharacterSetTest >> testEncode [
 	self assert: (characterSet encode: '8675309')   = '110110001110000100101001'.
 	
 	self assert: (characterSet encode: '01234567') = '000000110001010110011000011'.
+	
 
 
 ]
@@ -93,9 +94,22 @@ QRNumericCharacterSetTest >> testISOSpecExample1 [
 	barcode encoding: (QREncoding
 							version: 1							
 							errorCorrection: QRErrorCorrection levelH
-							characterSet: QRNumericCharacterSet).	
-	barcode halt binarySequence  							
- 				
+							characterSet: self defaultTestClass).	
+	self assert: (barcode binarySequence copyFrom: 1 to: 41) =  ('0001','0000001000','0000001100','0101011001','1000011')
+ 	 
+]
+
+{ #category : #'tests-iso spec' }
+QRNumericCharacterSetTest >> testISOSpecExample2 [
+	|barcode|
+	barcode := QRBarcode new.
+	barcode data: '0123456789012345'. 
+	barcode encoding: (QREncoding
+							version: 1							
+							errorCorrection: QRErrorCorrection levelH
+							characterSet: self defaultTestClass).	
+	self assert: (barcode binarySequence copyFrom: 1 to: 68) =  ('0001','0000010000','0000001100','0101011001','1010100110', '1110000101', '0011101010', '0101')
+ 	 
 ]
 
 { #category : #tests }
