@@ -34,7 +34,6 @@ QRErrorCorrectionTest >> testLevelL [
 { #category : #tests }
 QRErrorCorrectionTest >> testLevelM [
 
-
 	| level |
 	level := QRErrorCorrection levelM.
 	self 
