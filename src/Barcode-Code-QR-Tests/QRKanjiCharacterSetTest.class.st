@@ -22,5 +22,5 @@ QRKanjiCharacterSetTest >> setUp [
 { #category : #tests }
 QRKanjiCharacterSetTest >> testModeIndicator [
 
-	self assert: characterSet modeIndicator = '1000'
+	self assert: characterSet modeIndicator equals: '1000'
 ]

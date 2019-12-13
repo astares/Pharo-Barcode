@@ -45,7 +45,7 @@ QREncodingTest >> numeric40L [
 		characterSet: QRNumericCharacterSet 
 ]
 
-{ #category : #tests }
+{ #category : #running }
 QREncodingTest >> setUp [
 
 	super setUp.
@@ -65,20 +65,20 @@ QREncodingTest >> testInstanceCreation [
 					errorCorrection: QRErrorCorrection levelL
 					characterSet: QRNumericCharacterSet .
 	self
-		assert: instance version = 1 asQRVersion; 
-		assert: instance characterSet = QRNumericCharacterSet;
-		assert: instance errorCorrection = QRErrorCorrection levelL 
+		assert: instance version equals: 1 asQRVersion; 
+		assert: instance characterSet equals: QRNumericCharacterSet;
+		assert: instance errorCorrection equals: QRErrorCorrection levelL 
 ]
 
 { #category : #tests }
 QREncodingTest >> testMaximumCharacterCapacity [
 
-	self assert: encoding maximumCharacterCapacity = 25.	
+	self assert: encoding maximumCharacterCapacity equals: 25.	
 	
-	self assert: self numeric40L maximumCharacterCapacity = 7089.
-	self assert: self alphanumeric40L maximumCharacterCapacity = 4296.
-	self assert: self byte40L maximumCharacterCapacity = 2953.
-	self assert: self kanji40L maximumCharacterCapacity = 1817.
+	self assert: self numeric40L maximumCharacterCapacity equals: 7089.
+	self assert: self alphanumeric40L maximumCharacterCapacity equals: 4296.
+	self assert: self byte40L maximumCharacterCapacity equals: 2953.
+	self assert: self kanji40L maximumCharacterCapacity equals: 1817.
 ]
 
 { #category : #tests }

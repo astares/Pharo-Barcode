@@ -1,3 +1,6 @@
+"
+Block informations within a QR barcode
+"
 Class {
 	#name : #QRBlockInformation,
 	#superclass : #Object,

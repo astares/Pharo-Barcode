@@ -1,3 +1,6 @@
+"
+Error correction within QR codes
+"
 Class {
 	#name : #QRErrorCorrection,
 	#superclass : #Object,

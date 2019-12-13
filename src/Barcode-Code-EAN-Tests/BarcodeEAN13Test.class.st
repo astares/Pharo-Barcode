@@ -21,17 +21,17 @@ BarcodeEAN13Test >> setUp [
 BarcodeEAN13Test >> testBinarySequence [
 
 	barcode data: '2109876543210'.
-	self assert: barcode binarySequence = '10100110010001101001011100010010111011000010101010100111010111001000010110110011001101110010101'	
+	self assert: barcode binarySequence equals: '10100110010001101001011100010010111011000010101010100111010111001000010110110011001101110010101'	
 ]
 
 { #category : #tests }
 BarcodeEAN13Test >> testComputeChecksum [
 
 	barcode data: '2109876543210'.
-	self assert: barcode computeChecksum = 0.
+	self assert: barcode computeChecksum equals: 0.
 
 	barcode data: '2109876523212'.
-	self assert: barcode computeChecksum = 2	
+	self assert: barcode computeChecksum equals: 2	
 ]
 
 { #category : #'tests-private' }
@@ -46,7 +46,7 @@ BarcodeEAN13Test >> testLeftBinarySequence [
 { #category : #'tests-private' }
 BarcodeEAN13Test >> testLeftRuleTable [
 
-	self assert: barcode leftRuleTable size = 10
+	self assert: barcode leftRuleTable size equals: 10
 ]
 
 { #category : #'tests-private' }
@@ -61,7 +61,7 @@ BarcodeEAN13Test >> testRightBinarySequence [
 { #category : #'tests-private' }
 BarcodeEAN13Test >> testRightRuleTable [
 
-	self assert: barcode rightRuleTable size = 10
+	self assert: barcode rightRuleTable size equals: 10
 ]
 
 { #category : #tests }

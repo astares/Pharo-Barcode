@@ -1,3 +1,6 @@
+"
+A model indicator
+"
 Class {
 	#name : #QRModeIndicator,
 	#superclass : #Object,

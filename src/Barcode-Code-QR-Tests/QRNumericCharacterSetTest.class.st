@@ -55,15 +55,15 @@ QRNumericCharacterSetTest >> testCharacterCountIndicatorSizeInBits [
 	   12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12
 	   14 14 14 14 14 14 14 14 14 14 14 14 14 14)
 		withIndexDo: [:element :index | 
-			self assert: (characterSet characterCountIndicatorSizeInBitsForVersion: index) = element ]
+			self assert: (characterSet characterCountIndicatorSizeInBitsForVersion: index) equals: element ]
 ]
 
 { #category : #tests }
 QRNumericCharacterSetTest >> testEncode [
 
-	self assert: (characterSet encode: '8675309')   = '110110001110000100101001'.
+	self assert: (characterSet encode: '8675309') equals: '110110001110000100101001'.
 	
-	self assert: (characterSet encode: '01234567') = '000000110001010110011000011'.
+	self assert: (characterSet encode: '01234567') equals: '000000110001010110011000011'.
 	
 
 
@@ -79,11 +79,11 @@ QRNumericCharacterSetTest >> testEncodeOnlyNumericCharacters [
 QRNumericCharacterSetTest >> testEncodeWithLeadingZeros [
 	"If the group starts with a zero, it should be interpreted as a two-digit number, and if there are two zeroes at the beginning of the group, it should be interpreted as a one-digit number."
 	
-	self assert: (characterSet encode: '09') = '1001'.
-	self assert: (characterSet encode: '009') = '1001'.
+	self assert: (characterSet encode: '09') equals: '1001'.
+	self assert: (characterSet encode: '009') equals: '1001'.
 		
-	self assert: (characterSet encode: '00909') = '10011001'.
-	self assert: (characterSet encode: '009009') = '10011001'  "gives same bit pattern"
+	self assert: (characterSet encode: '00909') equals: '10011001'.
+	self assert: (characterSet encode: '009009') equals: '10011001'  "gives same bit pattern"
 ]
 
 { #category : #'tests-iso spec' }
@@ -95,7 +95,7 @@ QRNumericCharacterSetTest >> testISOSpecExample1 [
 							version: 1							
 							errorCorrection: QRErrorCorrection levelH
 							characterSet: self defaultTestClass).	
-	self assert: (barcode binarySequence copyFrom: 1 to: 41) =  ('0001','0000001000','0000001100','0101011001','1000011')
+	self assert: (barcode binarySequence copyFrom: 1 to: 41) equals: ('0001','0000001000','0000001100','0101011001','1000011')
  	 
 ]
 
@@ -115,5 +115,5 @@ QRNumericCharacterSetTest >> testISOSpecExample2 [
 { #category : #tests }
 QRNumericCharacterSetTest >> testModeIndicator [
 
-	self assert: characterSet modeIndicator = '0001'
+	self assert: characterSet modeIndicator equals: '0001'
 ]

@@ -24,7 +24,7 @@ QRByteCharacterSetTest >> setUp [
 QRByteCharacterSetTest >> testCanEncode [
 
 	((Character value:1) to: (Character value:255)) 
-		do: [:character | self assert:  (characterSet canEncode: character) ].
+		do: [:character | self assert: (characterSet canEncode: character) ].
 		
 	self deny: (characterSet canEncode: (Character value: 256))
 ]
@@ -32,7 +32,7 @@ QRByteCharacterSetTest >> testCanEncode [
 { #category : #tests }
 QRByteCharacterSetTest >> testEncode [
 
-	self assert: (characterSet encode: 'Hello, world!') = '01001000011001010110110001101100011011110010110000100000011101110110111101110010011011000110010000100001'
+	self assert: (characterSet encode: 'Hello, world!') equals: '01001000011001010110110001101100011011110010110000100000011101110110111101110010011011000110010000100001'
 
 
 ]
@@ -46,5 +46,5 @@ QRByteCharacterSetTest >> testEncodeOnlyByteCharacters [
 { #category : #tests }
 QRByteCharacterSetTest >> testModeIndicator [
 
-	self assert: characterSet modeIndicator = '0100'
+	self assert: characterSet modeIndicator equals: '0100'
 ]

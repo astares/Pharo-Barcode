@@ -18,7 +18,7 @@ BarcodeEAN8Test >> setUp [
 BarcodeEAN8Test >> testBinarySequence [
 
 	barcode data: '12345670'.
-	self assert: barcode binarySequence = '1010011001001001101111010100011010101001110101000010001001110010101'	
+	self assert: barcode binarySequence equals: '1010011001001001101111010100011010101001110101000010001001110010101'	
 	 
 ]
 
@@ -26,7 +26,7 @@ BarcodeEAN8Test >> testBinarySequence [
 BarcodeEAN8Test >> testComputeChecksum [
 
 	barcode data: '76543210'.
-	self assert: barcode computeChecksum = 0.
+	self assert: barcode computeChecksum equals: 0.
 ]
 
 { #category : #'tests-private' }
@@ -39,7 +39,7 @@ BarcodeEAN8Test >> testLeftBinarySequence [
 { #category : #'tests-private' }
 BarcodeEAN8Test >> testLeftRuleTable [
 
-	self assert: barcode leftRuleTable size = 10
+	self assert: barcode leftRuleTable size equals: 10
 ]
 
 { #category : #'tests-private' }
@@ -54,7 +54,7 @@ BarcodeEAN8Test >> testRightBinarySequence [
 { #category : #'tests-private' }
 BarcodeEAN8Test >> testRightRuleTable [
 
-	self assert: barcode rightRuleTable size = 10
+	self assert: barcode rightRuleTable size equals: 10
 ]
 
 { #category : #tests }

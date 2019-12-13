@@ -1,3 +1,6 @@
+"
+QR code encoding
+"
 Class {
 	#name : #QREncoding,
 	#superclass : #Object,

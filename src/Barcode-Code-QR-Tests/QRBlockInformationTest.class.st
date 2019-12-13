@@ -13,10 +13,10 @@ QRBlockInformationTest >> defaultTestClass [
 { #category : #testing }
 QRBlockInformationTest >> testBlockInfoTable [
 
-	self assert: self defaultTestClass blockInfoTable size = 40 "versions".
+	self assert: self defaultTestClass blockInfoTable size equals: 40 "versions".
 	
 	self defaultTestClass blockInfoTable 
-		do: [:row | self assert: row size = 4 "error correction levels"].
+		do: [:row | self assert: row size equals: 4 "error correction levels"].
 	
 ]
 
@@ -29,7 +29,7 @@ QRBlockInformationTest >> testBlockInfoTotalDataCodewords [
 			info := self defaultTestClass fromSpecArray: spec.
 			totalDataCodewords := info numberOfDataCodewordsInEachOfGroup1sBlocks * info numberOfBocksInGroup1.
 			info hasExtendedSpec ifTrue: [ totalDataCodewords := totalDataCodewords + (info numberOfDataCodewordsInEachOfGroup2sBlocks * info numberOfBocksInGroup2) ].
-			self assert: info totalNumberOfDataCodewords = totalDataCodewords ]]
+			self assert: info totalNumberOfDataCodewords equals: totalDataCodewords ]]
 
 	 
 ]
@@ -41,10 +41,10 @@ QRBlockInformationTest >> testInstanceCreation [
 	info := self defaultTestClass 
 				version: 1 asQRVersion															
 				errorCorrection: QRErrorCorrection levelL.
-	self assert: info totalNumberOfDataCodewords = 19.
-	self assert: info errorCorrectionCodewordsPerBlock = 7.
-	self assert: info numberOfBocksInGroup1 = 1.
-	self assert: info numberOfDataCodewordsInEachOfGroup1sBlocks = 19.				
+	self assert: info totalNumberOfDataCodewords equals: 19.
+	self assert: info errorCorrectionCodewordsPerBlock equals: 7.
+	self assert: info numberOfBocksInGroup1 equals: 1.
+	self assert: info numberOfDataCodewordsInEachOfGroup1sBlocks equals: 19 				
 						
 
 ]
@@ -56,12 +56,12 @@ QRBlockInformationTest >> testInstanceCreation5Q [
 	info := self defaultTestClass 
 				version: 5 asQRVersion															
 				errorCorrection: QRErrorCorrection levelQ.	
-	self assert: info totalNumberOfDataCodewords = 62.
-	self assert: info errorCorrectionCodewordsPerBlock = 18.
-	self assert: info numberOfBocksInGroup1 = 2.
-	self assert: info numberOfDataCodewordsInEachOfGroup1sBlocks = 15.	
-	self assert: info numberOfBocksInGroup2 = 2.
-	self assert: info numberOfDataCodewordsInEachOfGroup2sBlocks = 16		
+	self assert: info totalNumberOfDataCodewords equals: 62.
+	self assert: info errorCorrectionCodewordsPerBlock equals: 18.
+	self assert: info numberOfBocksInGroup1 equals: 2.
+	self assert: info numberOfDataCodewordsInEachOfGroup1sBlocks equals: 15.	
+	self assert: info numberOfBocksInGroup2 equals: 2.
+	self assert: info numberOfDataCodewordsInEachOfGroup2sBlocks equals: 16		
 						
 
 ]

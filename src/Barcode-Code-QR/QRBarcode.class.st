@@ -1,3 +1,6 @@
+"
+A QR barcode
+"
 Class {
 	#name : #QRBarcode,
 	#superclass : #Barcode,

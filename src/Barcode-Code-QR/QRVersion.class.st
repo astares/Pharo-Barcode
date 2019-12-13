@@ -1,3 +1,6 @@
+"
+QR version
+"
 Class {
 	#name : #QRVersion,
 	#superclass : #Object,

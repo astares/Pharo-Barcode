@@ -22,14 +22,14 @@ QRAlphanumericCharacterSetTest >> setUp [
 { #category : #tests }
 QRAlphanumericCharacterSetTest >> testAllowedCharacters [
 
-	self assert: characterSet allowedCharacters size = 44
+	self assert: characterSet allowedCharacters size equals: 44
 
 ]
 
 { #category : #tests }
 QRAlphanumericCharacterSetTest >> testCanEncode [
 
-	($1 to: $9) do: [:digit | 
+   ($1 to: $9) do: [:digit | 
 		self assert:  (characterSet canEncode: digit) ].
 	
 	($A to: $Z) do: [:character | 
@@ -59,13 +59,13 @@ QRAlphanumericCharacterSetTest >> testCharacterCountIndicatorSizeInBits [
 	   11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11
 	   13 13 13 13 13 13 13 13 13 13 13 13 13 13)
 		withIndexDo: [:element :index | 
-			self assert: (characterSet characterCountIndicatorSizeInBitsForVersion: index) = element ]
+			self assert: (characterSet characterCountIndicatorSizeInBitsForVersion: index) equals: element ]
 ]
 
 { #category : #tests }
 QRAlphanumericCharacterSetTest >> testEncode [
 
-	self assert: (characterSet encode: 'HELLO WORLD') = '0110000101101111000110100010111001011011100010011010100001101'
+	self assert: (characterSet encode: 'HELLO WORLD') equals: '0110000101101111000110100010111001011011100010011010100001101'
 
 
 ]
@@ -85,11 +85,11 @@ QRAlphanumericCharacterSetTest >> testISOSpecExample1 [
 							version: 1							
 							errorCorrection: QRErrorCorrection levelH
 							characterSet: self defaultTestClass).	
-	self assert: (barcode binarySequence copyFrom: 1 to: 41) =  ('0010','000000101','00111001110','11100111001','000010')  
+	self assert: (barcode binarySequence copyFrom: 1 to: 41) equals: ('0010','000000101','00111001110','11100111001','000010')  
 ]
 
 { #category : #tests }
 QRAlphanumericCharacterSetTest >> testModeIndicator [
 
-	self assert: characterSet modeIndicator = '0010'
+	self assert: characterSet modeIndicator equals: '0010'
 ]

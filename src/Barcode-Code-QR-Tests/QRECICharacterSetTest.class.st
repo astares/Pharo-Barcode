@@ -7,5 +7,5 @@ Class {
 { #category : #tests }
 QRECICharacterSetTest >> testModeIndicator [
 
-	self assert: QRECICharacterSet modeIndicator = '0111'
+	self assert: QRECICharacterSet modeIndicator equals: '0111'
 ]

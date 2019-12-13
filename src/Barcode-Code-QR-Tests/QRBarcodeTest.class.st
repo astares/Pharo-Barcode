@@ -30,14 +30,14 @@ QRBarcodeTest >> testCharacterCountIndicator [
 	|stringToEncode expectedIndicator |
 	stringToEncode := 'HELLO WORLD'.
 	expectedIndicator := '000001011'. "HELLOWORLD has 11 characters, this is binary 1011"
-	self assert: ('2r', expectedIndicator) asNumber =  stringToEncode size.
+	self assert: ('2r', expectedIndicator) asNumber equals: stringToEncode size.
 	
 	barcode data: 'HELLO WORLD'.
 	barcode encoding: (QREncoding
 							version: 1							 
 							errorCorrection: QRErrorCorrection levelQ
 							characterSet: QRAlphanumericCharacterSet).	
-	self assert: barcode characterCountIndicator = expectedIndicator.
+	self assert: barcode characterCountIndicator equals: expectedIndicator.
 	 
 ]
 
@@ -59,7 +59,7 @@ QRBarcodeTest >> testHelloWorldExample [
 	|stringToEncode expectedIndicator |
 	stringToEncode := 'HELLO WORLD'.
 	expectedIndicator := '000001011'. "HELLOWORLD has 11 characters, this is binary 1011"
-	self assert: ('2r', expectedIndicator) asNumber =  stringToEncode size.
+	self assert: ('2r', expectedIndicator) asNumber equals: stringToEncode size.
 	
 	barcode data: 'HELLO WORLD'.
 	barcode encoding: (QREncoding
@@ -94,6 +94,6 @@ QRBarcodeTest >> testModeIndicator [
 							version: 1
 							errorCorrection: QRErrorCorrection  levelL
 							characterSet: characterSet).	
-	self assert: (barcode binarySequence copyFrom: 1 to: 4) = characterSet modeIndicator 							
+	self assert: (barcode binarySequence copyFrom: 1 to: 4) equals: characterSet modeIndicator 							
  				
 ]
