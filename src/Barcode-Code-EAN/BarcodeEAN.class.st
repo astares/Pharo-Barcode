@@ -1,3 +1,6 @@
+"
+Common superclass for EAN barcodes
+"
 Class {
 	#name : #BarcodeEAN,
 	#superclass : #Barcode,
