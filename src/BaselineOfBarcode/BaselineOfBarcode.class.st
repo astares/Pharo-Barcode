@@ -24,8 +24,8 @@ BaselineOfBarcode >> baseline: spec [
 				package: 'Barcode-Code-EAN' with: [ spec requires: #('Barcode-Core') ];	
 				package: 'Barcode-Code-EAN-Tests' with: [ spec requires: #('Barcode-Core-Tests' 'Barcode-Code-EAN') ];
 				
-				package: 'Barcode-Code-EAN' with: [ spec requires: #('Barcode-Core') ];	
-				package: 'Barcode-Code-EAN-Tests' with: [ spec requires: #('Barcode-Core-Tests' 'Barcode-Code-EAN') ].		
+				package: 'Barcode-Code-QR' with: [ spec requires: #('Barcode-Core') ];	
+				package: 'Barcode-Code-QR-Tests' with: [ spec requires: #('Barcode-Core-Tests' 'Barcode-Code-EAN') ].		
 				
 			"Groups"
 			spec
