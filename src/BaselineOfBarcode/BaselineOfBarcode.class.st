@@ -30,7 +30,7 @@ BaselineOfBarcode >> baseline: spec [
 			"Groups"
 			spec
 				group: 'Core' with: #('Barcode-Core' 'Barcode-Code-EAN' 'Barcode-Code-QR');		
-				group: 'Tests' with: #('Barcode-Core-Tests'); 			
+				group: 'Tests' with: #('Barcode-Core-Tests' 'Barcode-Code-EAN-Tests' 'Barcode-Code-QR-Tests'); 			
 				group: 'all' with: #('Core' 'Tests');
 				group: 'default' with: #('all') ].
 ]
