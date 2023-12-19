@@ -52,6 +52,12 @@ QRVersionTest >> testPrinting [
 	self assert: (QRVersion nr: 12) printString equals: 'QRVersion nr: 12'
 ]
 
+{ #category : #'tests - converting' }
+QRVersionTest >> testSymbolSizeInPixels [
+
+	self assert: (QRVersion nr: 5) symbolSizeInPixels equals: 37
+]
+
 { #category : #tests }
 QRVersionTest >> testSymbolSizes [
 
