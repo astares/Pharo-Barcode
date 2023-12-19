@@ -10,7 +10,7 @@ Class {
 { #category : #'private accessing' }
 QRAlphanumericCharacterSet class >> allowedCharacters [
 
-	^OrderedCollection new
+	^ OrderedCollection new
 			addAll: ($1 to: $9);
       		addAll: ($A to: $Z);
 			add: Character space;

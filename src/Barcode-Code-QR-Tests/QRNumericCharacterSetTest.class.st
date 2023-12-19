@@ -78,10 +78,10 @@ QRNumericCharacterSetTest >> testEncodeOnlyNumericCharacters [
 { #category : #tests }
 QRNumericCharacterSetTest >> testEncodeWithLeadingZeros [
 	"If the group starts with a zero, it should be interpreted as a two-digit number, and if there are two zeroes at the beginning of the group, it should be interpreted as a one-digit number."
-	
+
 	self assert: (characterSet encode: '09') equals: '1001'.
 	self assert: (characterSet encode: '009') equals: '1001'.
-		
+
 	self assert: (characterSet encode: '00909') equals: '10011001'.
 	self assert: (characterSet encode: '009009') equals: '10011001'  "gives same bit pattern"
 ]

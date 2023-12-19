@@ -11,12 +11,13 @@ Class {
 
 { #category : #example }
 BarcodeEAN8 class >> example [
+	<example>
 
-	^self value: '12345670'
+	(self data: '12345670') asForm inspect
 ]
 
 { #category : #defaults }
 BarcodeEAN8 >> defaultSize [
 
-	^8
+	^ 8
 ]

@@ -13,15 +13,22 @@ Class {
 { #category : #'instance creation' }
 Barcode class >> data: aString [
 
-	^(self new)
-		data: aString;
-		yourself
+	^ self new
+		  data: aString;
+		  yourself
+]
+
+{ #category : #testing }
+Barcode class >> isAbstract [
+
+	^ self == Barcode
 ]
 
 { #category : #accessing }
-Barcode >> data [ 
+Barcode >> data [
+
 	data ifNil: [ data := String new ].
-	^data
+	^ data
 ]
 
 { #category : #accessing }

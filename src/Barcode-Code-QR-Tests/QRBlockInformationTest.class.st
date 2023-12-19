@@ -7,17 +7,16 @@ Class {
 { #category : #accessing }
 QRBlockInformationTest >> defaultTestClass [
 
-	^QRBlockInformation 
+	^ QRBlockInformation
 ]
 
 { #category : #testing }
 QRBlockInformationTest >> testBlockInfoTable [
 
-	self assert: self defaultTestClass blockInfoTable size equals: 40 "versions".
-	
-	self defaultTestClass blockInfoTable 
-		do: [:row | self assert: row size equals: 4 "error correction levels"].
-	
+	self assert: self defaultTestClass blockInfoTable size equals: 40. "versions"
+
+	self defaultTestClass blockInfoTable do: [ :row |
+		self assert: row size equals: 4 "error correction levels" ]
 ]
 
 { #category : #testing }

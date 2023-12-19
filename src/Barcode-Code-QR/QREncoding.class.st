@@ -13,6 +13,16 @@ Class {
 }
 
 { #category : #examples }
+QREncoding class >> example [
+	<sampleInstance>
+
+	^ self
+		  version: 40 asQRVersion
+		  errorCorrection: QRErrorCorrection levelL
+		  characterSet: QRNumericCharacterSet
+]
+
+{ #category : #examples }
 QREncoding class >> example1 [
 
 	^QREncoding 
@@ -25,10 +35,11 @@ QREncoding class >> example1 [
 { #category : #'instance creation' }
 QREncoding class >> version: version errorCorrection: errorCorrection characterSet: characterSet [
 
-	^(self new)
-		version: version asQRVersion errorCorrection: errorCorrection characterSet: characterSet ;
-		yourself
-
+	^ self new
+		  version: version asQRVersion
+		  errorCorrection: errorCorrection
+		  characterSet: characterSet;
+		  yourself
 ]
 
 { #category : #accessing }

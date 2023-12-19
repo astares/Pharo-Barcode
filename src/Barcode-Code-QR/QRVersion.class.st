@@ -5,7 +5,6 @@ Class {
 	#name : #QRVersion,
 	#superclass : #Object,
 	#instVars : [
-		'nr',
 		'number'
 	],
 	#category : #'Barcode-Code-QR-Utilities'
@@ -14,37 +13,54 @@ Class {
 { #category : #'instance creation' }
 QRVersion class >> nr: aVersionNumber [
 
-	^(self new)
-		number: aVersionNumber;
-		yourself 
+	^ self new
+		  number: aVersionNumber;
+		  yourself
 ]
 
 { #category : #comparing }
 QRVersion >> = anotherQRVersion [
-
-	^self number = anotherQRVersion number
+	self species = anotherQRVersion species ifFalse: [ ^ false ].
+	^ self number = anotherQRVersion number
 ]
 
-{ #category : #conversion }
+{ #category : #converting }
 QRVersion >> asQRVersion [
 
-	^self
+	^ self
+]
+
+{ #category : #comparing }
+QRVersion >> hash [
+
+	^ number hash
 ]
 
 { #category : #accessing }
 QRVersion >> number [
-	^number
+
+	^ number
 ]
 
 { #category : #accessing }
-QRVersion >> number: aNr [ 
-	(aNr < 1 or: [ aNr > 50 ]) ifTrue: [ self error: 'Only 1 to 40 allowed' ].
+QRVersion >> number: aNr [
+
+	(aNr < 1 or: [ aNr > 40 ]) ifTrue: [
+		self error: 'Only 1 to 40 allowed' ].
 	number := aNr
+]
+
+{ #category : #printing }
+QRVersion >> printOn: aStream [
+
+	aStream
+		nextPutAll: 'QRVersion nr: ';
+		nextPutAll: self number asString
 ]
 
 { #category : #accessing }
 QRVersion >> symbolSizeInPixels [
-	"Returns the sybol size - not including the quiet zone"
-	
-	^17 + (self number * 4)
+	"Returns the symbol size - not including the quiet zone. This is also refered to as the number of modules"
+
+	^ 17 + (4 * self number)
 ]

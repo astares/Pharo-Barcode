@@ -11,28 +11,32 @@ Class {
 BarcodeEAN8Test >> setUp [
 
 	super setUp.
-	barcode := BarcodeEAN8 data: '764543210'.
+	barcode := BarcodeEAN8 data: '764543210'
 ]
 
 { #category : #tests }
 BarcodeEAN8Test >> testBinarySequence [
 
 	barcode data: '12345670'.
-	self assert: barcode binarySequence equals: '1010011001001001101111010100011010101001110101000010001001110010101'	
-	 
+	self
+		assert: barcode binarySequence
+		equals:
+		'1010011001001001101111010100011010101001110101000010001001110010101'
 ]
 
 { #category : #tests }
 BarcodeEAN8Test >> testComputeChecksum [
 
 	barcode data: '76543210'.
-	self assert: barcode computeChecksum equals: 0.
+	self assert: barcode computeChecksum equals: 0
 ]
 
 { #category : #'tests-private' }
 BarcodeEAN8Test >> testLeftBinarySequence [
 
-	self assert: (String streamContents: [:s | barcode leftBinarySequenceOn: s for: '1234'])
+	self
+		assert: (String streamContents: [ :s |
+				 barcode leftBinarySequenceOn: s for: '1234' ])
 		equals: '0011001001001101111010100011'
 ]
 
@@ -45,10 +49,10 @@ BarcodeEAN8Test >> testLeftRuleTable [
 { #category : #'tests-private' }
 BarcodeEAN8Test >> testRightBinarySequence [
 
-	self assert: (String streamContents: [:s | barcode rightBinarySequenceOn: s for: '5670'])
+	self
+		assert: (String streamContents: [ :s |
+				 barcode rightBinarySequenceOn: s for: '5670' ])
 		equals: '1001110101000010001001110010'
-	 
-	
 ]
 
 { #category : #'tests-private' }
@@ -61,5 +65,5 @@ BarcodeEAN8Test >> testRightRuleTable [
 BarcodeEAN8Test >> testValidChecksum [
 
 	barcode data: '76543210'.
-	self assert: barcode hasValidCheckSum 
+	self assert: barcode hasValidCheckSum
 ]

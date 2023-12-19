@@ -16,5 +16,5 @@ QRECICharacterSet class >> capacityTable [
 { #category : #accessing }
 QRECICharacterSet class >> modeIndicator [
 
-	^'0111'
+	^ '0111'
 ]
